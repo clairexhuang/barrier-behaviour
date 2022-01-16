@@ -1,0 +1,44 @@
+bar.ms.s.c2.mmtk_gc-GenCopy.tph.probes_cp.probes:
+  dacapochopin-29a657f:
+    avrora: 14
+    batik: 668
+    biojava: 399
+    cassandra: 152
+    eclipse: 1053
+    fop: 43
+    graphchi: 256
+    h2: .inf
+    h2o: 196
+    jme: 236
+    jython: 112
+    luindex: 54
+    lusearch: 42
+    pmd: 3521
+    sunflow: 31
+    tomcat: 103
+    tradebeans: .inf
+    tradesoap: .inf
+    xalan: 19
+    zxing: 540
+no-bar.ms.s.c2.mmtk_gc-GenCopy.tph.probes_cp.probes:
+  dacapochopin-29a657f:
+    avrora: 14
+    batik: 668
+    biojava: 398
+    cassandra: 153
+    eclipse: 1055
+    fop: 43
+    graphchi: 256
+    h2: .inf
+    h2o: 113
+    jme: 236
+    jython: 112
+    luindex: 54
+    lusearch: 42
+    pmd: 4083
+    sunflow: 31
+    tomcat: 103
+    tradebeans: .inf
+    tradesoap: .inf
+    xalan: 19
+    zxing: 538

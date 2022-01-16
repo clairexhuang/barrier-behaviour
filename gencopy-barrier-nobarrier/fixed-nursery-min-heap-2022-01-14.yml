@@ -1,0 +1,86 @@
+includes:
+  - "/home/claireh/running-ng/config/base/runbms.yml"
+
+benchmarks:
+  dacapochopin-29a657f:
+    - avrora
+    - batik
+    - biojava
+    - cassandra
+    - eclipse
+    - fop
+    - graphchi
+    - h2o
+    - jme
+    - jython
+    - luindex
+    - lusearch
+    - pmd
+    - sunflow
+    - tomcat
+    - xalan
+    - zxing
+
+overrides:
+  "suites.dacapochopin-29a657f.timing_iteration": 5
+  "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-29a657f.minheap": "temurin-11-G1"
+  "suites.dacapochopin-29a657f.timeout": 600
+  "suites.dacapochopin-29a657f.minheap_values.GenCopy":
+    avrora: 14
+    batik: 668
+    biojava: 399
+    cassandra: 153
+    eclipse: 1055
+    fop: 43
+    graphchi: 256
+    h2o: 196
+    jme: 236
+    jython: 112
+    luindex: 54
+    lusearch: 42
+    pmd: 4083
+    sunflow: 31
+    tomcat: 103
+    xalan: 19
+    zxing: 540
+  "suites.dacapochopin-29a657f.minheap": GenCopy
+
+
+runtimes:
+  no-bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/mmtk-openjdk/repos/openjdk/build_no_barrier/linux-x86_64-normal-server-release/jdk" # make sure /path/to/build1/jdk/bin/java exists
+  bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/mmtk-openjdk/repos/openjdk/build_barrier/linux-x86_64-normal-server-release/jdk" # make sure /path/to/build1/jdk/bin/java exists
+
+modifiers:
+  probes_cp:
+    type: JVMClasspath
+    val: "/home/claireh/probes /home/claireh/probes/probes.jar"
+  probes:
+    type: JVMArg
+    val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
+  min_nursery:
+    type: EnvVar
+    var: MMTK_MIN_NURSERY
+    val: "{0}"
+  max_nursery:
+    type: EnvVar
+    var: MMTK_MAX_NURSERY
+    val: "{0}"
+  nursery_size:
+    type: ModifierSet
+    val: "max_nursery-{0}|min_nursery-{0}"
+
+configs:
+  - "no-bar|ms|s|c2|mmtk_gc-GenCopy|tph|probes_cp|probes|nursery_size-33554432"
+  - "bar|ms|s|c2|mmtk_gc-GenCopy|tph|probes_cp|probes|nursery_size-33554432"
+
+
+
+
+

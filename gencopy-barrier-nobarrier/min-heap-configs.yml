@@ -1,0 +1,58 @@
+includes:
+  - "/home/claireh/running-ng/config/base/minheap.yml"
+
+benchmarks:
+  dacapochopin-29a657f:
+    - avrora
+    - batik
+    - biojava
+    - cassandra
+    - eclipse
+    - fop
+    - graphchi
+    - h2
+    - h2o
+    - jme
+    - jython
+    - luindex
+    - lusearch
+    - pmd
+    - sunflow
+    - tradebeans 
+    - tradesoap
+    - tomcat
+    - xalan
+    - zxing
+
+overrides:
+  "suites.dacapochopin-29a657f.timing_iteration": 5
+  "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-29a657f.minheap": "temurin-11-G1"
+  "suites.dacapochopin-29a657f.timeout": 600
+
+runtimes:
+  no-bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/mmtk-openjdk/repos/openjdk/build_no_barrier/linux-x86_64-normal-server-release/jdk" # make sure /path/to/build1/jdk/bin/java exists
+  bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/mmtk-openjdk/repos/openjdk/build_barrier/linux-x86_64-normal-server-release/jdk" # make sure /path/to/build1/jdk/bin/java exists
+
+modifiers:
+  probes_cp:
+    type: JVMClasspath
+    val: "/home/claireh/probes /home/claireh/probes/probes.jar"
+  probes:
+    type: JVMArg
+    val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
+
+configs:
+  - "no-bar|ms|s|c2|mmtk_gc-GenCopy|tph|probes_cp|probes"
+  - "bar|ms|s|c2|mmtk_gc-GenCopy|tph|probes_cp|probes"
+
+
+
+
+
