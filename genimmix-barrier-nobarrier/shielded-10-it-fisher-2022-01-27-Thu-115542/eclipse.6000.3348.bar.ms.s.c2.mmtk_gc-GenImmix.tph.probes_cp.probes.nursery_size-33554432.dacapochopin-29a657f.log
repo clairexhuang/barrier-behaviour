@@ -1,0 +1,578 @@
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 sudo -E cset shield --user claireh --group claireh --exec -- timeout 1200 /home/claireh/mmtk-openjdk/repos/openjdk/build_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms3348M -Xmx3348M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 10 -s default eclipse
+Thu 27 Jan 16:20:21 AEDT 2022
+
+ 16:20:21 up 20 days,  3:56,  3 users,  load average: 3.53, 3.01, 3.21
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22  4:24m  3.03s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22  2days  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    Fri18    4:24m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0  85760 6249688 3510060 6371184    0    0    41    32    3    1 13  0 86  0  0
+ 0  0  85760 6249952 3510064 6371112    0    0     0   412  107   34  0  0 100  0  0
+
+top - 16:20:22 up 20 days,  3:56,  3 users,  load average: 3.24, 2.96, 3.20
+Tasks: 152 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 13.2 us,  0.4 sy,  0.1 ni, 86.2 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  6250212 free,   149484 used,  9881176 buff/cache
+KiB Swap: 33554428 total, 33468668 free,    85760 used. 15727264 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5532   3940 S   0.0  0.0   0:23.61 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.07 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+cset: --> last message, executed args into cpuset "/user", new pid is: 1290
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 1 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 1 in 64140 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 2 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 2 in 22842 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 3 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 3 in 23088 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 4 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 4 in 23711 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 5 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 5 in 24294 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 6 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 6 in 25878 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 7 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 7 in 26980 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 8 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 8 in 27536 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 9 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 9 in 28621 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.ScanManagementRoots.time.min	work.ScanObjectSynchronizerRoots.time.min	work.ScanUniverseRoots.time.total	work.ScanJvmtiExportRoots.count	work.ScanAOTLoaderRoots.time.min	work.ScanManagementRoots.time.total	total-work.count	work.ScanStringTableRoots.time.total	total-work.time.min	work.ScanUniverseRoots.time.max	work.ScanCodeCacheRoots.time.total	work.ScanClassLoaderDataGraphRoots.time.min	work.ScanVMThreadRoots.time.min	work.ScanVMSpecificRoots.time.max	work.EndOfGC.time.total	work.GenImmixMatureProcessEdges.count	work.Prepare.time.total	work.ProcessModBuf.time.min	work.ScanSystemDictionaryRoots.time.min	work.PrepareMutator.count	work.ScanClassLoaderDataGraphRoots.time.total	work.ScanVMThreadRoots.count	work.Release.time.min	work.SweepChunk.time.total	work.PrepareBlockState.time.min	work.ScanAOTLoaderRoots.time.max	work.ScanVMSpecificRoots.time.total	work.EndOfGC.time.max	work.ReleaseCollector.time.total	work.ScanStringTableRoots.time.min	work.ScanUniverseRoots.time.min	total-work.time.max	work.ScanWeakProcessorRoots.time.max	work.ScanObjectSynchronizerRoots.time.total	work.ScanJNIHandlesRoots.count	work.ProcessModBuf.time.max	work.ScanManagementRoots.count	work.ScheduleCollection.time.max	work.PrepareCollector.time.total	work.Release.time.max	work.Release.count	work.StopMutators.time.min	work.ScanClassLoaderDataGraphRoots.count	work.ScanStringTableRoots.time.max	work.PrepareBlockState.count	work.ScanJNIHandlesRoots.time.total	work.ScanSystemDictionaryRoots.count	work.ProcessWeakRefs.time.min	work.ProcessWeakRefs.count	work.ScanJNIHandlesRoots.time.max	work.ProcessWeakRefs.time.total	work.ScheduleCollection.count	work.Finalization.time.max	work.ScanVMSpecificRoots.count	work.ScanVMThreadRoots.time.max	work.ScanWeakProcessorRoots.time.min	work.ScanSystemDictionaryRoots.time.max	work.Prepare.time.min	work.GenImmixMatureProcessEdges.time.max	work.ScanAOTLoaderRoots.count	work.ScanVMThreadRoots.time.total	work.StopMutators.count	work.ScanStackRoot.time.max	work.ScanJNIHandlesRoots.time.min	work.PrepareMutator.time.max	work.PrepareBlockState.time.max	work.ReleaseMutator.count	work.ScanSystemDictionaryRoots.time.total	work.ScanAOTLoaderRoots.time.total	work.GenImmixMatureProcessEdges.time.total	work.ScanJvmtiExportRoots.time.min	work.SweepChunk.time.min	work.ScanStringTableRoots.count	work.PrepareBlockState.time.total	work.ScheduleCollection.time.min	work.PrepareMutator.time.total	work.ReleaseCollector.time.max	work.ScanCodeCacheRoots.time.min	work.ReleaseMutator.time.total	work.PrepareCollector.count	work.ScanStackRoot.time.min	work.ScanObjectSynchronizerRoots.time.max	work.ReleaseMutator.time.min	work.ScanCodeCacheRoots.time.max	work.ScanCodeCacheRoots.count	work.ReleaseMutator.time.max	work.GenImmixMatureProcessEdges.time.min	work.ReleaseCollector.count	work.StopMutators.time.max	work.Release.time.total	work.ProcessWeakRefs.time.max	work.SweepChunk.time.max	work.ScanObjectSynchronizerRoots.count	work.ScanManagementRoots.time.max	work.ProcessModBuf.count	work.ScanWeakProcessorRoots.time.total	work.PrepareMutator.time.min	total-work.time.total	work.ScanUniverseRoots.count	work.Prepare.time.max	work.PrepareCollector.time.max	work.ProcessModBuf.time.total	work.Prepare.count	work.ScanJvmtiExportRoots.time.total	work.EndOfGC.time.min	work.ScheduleCollection.time.total	work.Finalization.count	work.ScanVMSpecificRoots.time.min	work.StopMutators.time.total	work.ScanStackRoot.count	work.Finalization.time.total	work.ScanStackRoot.time.total	work.Finalization.time.min	work.ScanWeakProcessorRoots.count	work.ScanJvmtiExportRoots.time.max	work.EndOfGC.count	work.ScanClassLoaderDataGraphRoots.time.max	work.ReleaseCollector.time.min	work.SweepChunk.count	work.PrepareCollector.time.min	
+195	15546.86	13881.77	2606.00	398.00	739755.00	195	710.00	1130430.00	1404321	52737003.00	70.00	16662.00	1585774043.00	186292.00	1328.00	21713.00	7084612.00	1343043	15201240.00	282.00	10066.00	5114	86769821.00	195	19155.00	549239682.00	3032.00	16385.00	677007.00	103432.00	373277.00	117688.00	1103.00	8382028.00	72334.00	524806.00	195	103070.00	195	161043.00	897366.00	688462.00	195	212080.00	195	378008.00	19446	999792.00	195	118.00	195	23301.00	63134.00	195	16780.00	195	893874.00	21687.00	44884.00	25183.00	4720998.00	195	1660073.00	195	284125.00	1509.00	10924.00	98111.00	5114	3622071.00	532009.00	70833396435.00	855.00	800.00	195	383993572.00	12695.00	2009654.00	1250.00	7689308.00	1695156.00	1170	1130.00	19176.00	114.00	8382028.00	195	6588.00	70.00	1170	985258.00	12372538.00	728.00	319677.00	195	17902.00	791	8671103.00	86.00	73764612413.00	195	138689.00	17004.00	15228918.00	195	526993.00	29567.00	6805848.00	195	626.00	77217800.00	5114	1397150.00	113271125.00	5362.00	195	15322.00	195	703997.00	112.00	19459	127.00	
+Total time: 29428.62 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f eclipse PASSED in 29429 msec =====
+Delete workspace 
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 sudo -E cset shield --user claireh --group claireh --exec -- timeout 1200 /home/claireh/mmtk-openjdk/repos/openjdk/build_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms3348M -Xmx3348M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 10 -s default eclipse
+Thu 27 Jan 16:31:16 AEDT 2022
+
+ 16:31:16 up 20 days,  4:07,  3 users,  load average: 3.19, 2.59, 2.76
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22  4:35m  3.22s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22  2days  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    Fri18    4:35m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0  85760 6248596 3510352 6372392    0    0    41    32    3    2 13  0 86  0  0
+ 0  0  85760 6248944 3510352 6372340    0    0     0     0  110   34  0  0 100  0  0
+
+top - 16:31:17 up 20 days,  4:07,  3 users,  load average: 3.19, 2.59, 2.76
+Tasks: 153 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 13.2 us,  0.4 sy,  0.1 ni, 86.2 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  6248660 free,   149520 used,  9882692 buff/cache
+KiB Swap: 33554428 total, 33468668 free,    85760 used. 15727228 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5532   3940 S   0.0  0.0   0:23.61 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.07 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+cset: --> last message, executed args into cpuset "/user", new pid is: 3907
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 1 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 1 in 61404 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 2 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 2 in 22976 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 3 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 3 in 22992 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 4 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 4 in 23689 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 5 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 5 in 24620 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 6 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 6 in 25630 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 7 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 7 in 26703 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 8 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 8 in 27762 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting warmup 9 =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+===== DaCapo evaluation-git-29a657f eclipse completed warmup 9 in 28468 msec =====
+Delete workspace 
+Unzip workspace 
+===== DaCapo evaluation-git-29a657f eclipse starting =====
+Initialize workspace ...................
+Index workspace .....................
+Build workspace 
+Search .. 4,207 references for default constructor in workspace
+       .. 1,957 references for method 'equals' in workspace
+Type hierarchy tests 
+AST tests 
+Completion tests .........
+Format tests ..............
+Model tests ................
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.StopMutators.time.max	work.Finalization.time.max	work.SweepChunk.count	work.ScanVMThreadRoots.time.max	work.ScanWeakProcessorRoots.time.max	work.EndOfGC.time.min	work.StopMutators.time.total	total-work.time.max	work.ScanManagementRoots.count	work.GenImmixMatureProcessEdges.time.total	work.ScanStackRoot.count	work.ScanCodeCacheRoots.time.max	work.ReleaseCollector.time.max	work.PrepareCollector.time.max	work.GenImmixMatureProcessEdges.time.min	work.ScanClassLoaderDataGraphRoots.count	work.ReleaseMutator.count	work.ScanStackRoot.time.min	work.ScanStringTableRoots.time.max	work.Release.time.total	work.EndOfGC.time.max	work.ScheduleCollection.time.max	work.SweepChunk.time.max	work.Release.time.min	work.ProcessWeakRefs.time.max	work.PrepareBlockState.count	work.ScanVMSpecificRoots.time.min	work.GenImmixMatureProcessEdges.count	work.ReleaseMutator.time.total	work.ScanJvmtiExportRoots.time.max	work.SweepChunk.time.min	work.ScanStackRoot.time.total	total-work.time.total	work.GenImmixMatureProcessEdges.time.max	work.ScanClassLoaderDataGraphRoots.time.total	work.ProcessModBuf.time.total	work.PrepareBlockState.time.max	work.Prepare.time.min	work.ScanStringTableRoots.time.total	work.ScanStringTableRoots.count	work.EndOfGC.time.total	work.ScanManagementRoots.time.min	work.PrepareMutator.count	work.ScanJNIHandlesRoots.time.total	work.EndOfGC.count	work.ScanAOTLoaderRoots.time.max	work.ScanClassLoaderDataGraphRoots.time.max	work.PrepareMutator.time.min	work.StopMutators.time.min	work.ScanCodeCacheRoots.time.total	work.ScanSystemDictionaryRoots.time.total	work.ScheduleCollection.count	work.ScanObjectSynchronizerRoots.count	work.ScanObjectSynchronizerRoots.time.max	work.ScanVMSpecificRoots.time.max	work.ScanVMThreadRoots.time.min	work.Release.count	work.ScanVMSpecificRoots.time.total	work.ScheduleCollection.time.total	work.ScheduleCollection.time.min	work.ScanJNIHandlesRoots.time.max	total-work.time.min	work.ReleaseCollector.time.min	work.Finalization.count	work.ScanAOTLoaderRoots.time.total	work.ScanManagementRoots.time.total	work.Release.time.max	work.Prepare.time.max	work.Prepare.time.total	total-work.count	work.PrepareCollector.count	work.ScanJvmtiExportRoots.time.min	work.SweepChunk.time.total	work.ScanUniverseRoots.time.min	work.ScanVMSpecificRoots.count	work.ScanSystemDictionaryRoots.time.min	work.PrepareMutator.time.max	work.ScanJNIHandlesRoots.count	work.ProcessWeakRefs.time.min	work.ScanVMThreadRoots.time.total	work.ProcessModBuf.time.max	work.ScanManagementRoots.time.max	work.ProcessModBuf.time.min	work.ScanUniverseRoots.time.max	work.ScanUniverseRoots.count	work.Prepare.count	work.ReleaseMutator.time.max	work.ScanWeakProcessorRoots.time.total	work.ScanClassLoaderDataGraphRoots.time.min	work.PrepareBlockState.time.min	work.ScanCodeCacheRoots.time.min	work.ScanJvmtiExportRoots.time.total	work.ScanStringTableRoots.time.min	work.ProcessModBuf.count	work.ScanVMThreadRoots.count	work.ReleaseMutator.time.min	work.StopMutators.count	work.PrepareBlockState.time.total	work.ScanUniverseRoots.time.total	work.ScanAOTLoaderRoots.count	work.ProcessWeakRefs.time.total	work.PrepareMutator.time.total	work.Finalization.time.total	work.ScanSystemDictionaryRoots.count	work.ProcessWeakRefs.count	work.ScanWeakProcessorRoots.time.min	work.ScanObjectSynchronizerRoots.time.total	work.ScanJvmtiExportRoots.count	work.PrepareCollector.time.min	work.ScanJNIHandlesRoots.time.min	work.PrepareCollector.time.total	work.Finalization.time.min	work.ScanAOTLoaderRoots.time.min	work.ScanCodeCacheRoots.count	work.ScanWeakProcessorRoots.count	work.ScanSystemDictionaryRoots.time.max	work.ReleaseCollector.count	work.ScanObjectSynchronizerRoots.time.min	work.ScanStackRoot.time.max	work.ReleaseCollector.time.total	
+198	15623.98	14096.96	988071.00	21433.00	19779	33377.00	72311.00	29789.00	78197902.00	9071431.00	198	72189843014.00	5194	9071431.00	1255.00	8490.00	70.00	198	5194	969.00	405995.00	10244889.00	70446.00	169522.00	323935.00	24708.00	2447.00	19755	686.00	1376833	1708313.00	11944.00	368.00	114149815.00	75161673012.00	8131397.00	83509322.00	16437412.00	129979.00	25770.00	53614334.00	198	7186543.00	3258.00	5194	932491.00	198	25552.00	688274.00	77.00	220782.00	1616747749.00	3586896.00	198	198	17366.00	97386.00	1308.00	198	844164.00	7677885.00	11963.00	19040.00	70.00	120.00	198	462441.00	1215792.00	530151.00	141463.00	16045476.00	1439087	1188	636.00	557068278.00	1018.00	198	10793.00	8696.00	198	169.00	780210.00	113001.00	23335.00	391.00	24079.00	198	198	8145.00	8768548.00	181809.00	3232.00	7757823.00	509426.00	171529.00	802	198	94.00	198	386119589.00	771952.00	198	66553.00	2080967.00	1421872.00	198	198	23094.00	488834.00	198	134.00	1815.00	823680.00	5446.00	416.00	198	198	38283.00	1188	395.00	233384.00	368665.00	
+Total time: 29720.94 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f eclipse PASSED in 29721 msec =====
+Delete workspace 
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 sudo -E cset shield --user claireh --group claireh --exec -- timeout 1200 /home/claireh/mmtk-openjdk/repos/openjdk/build_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms3348M -Xmx3348M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 10 -s default eclipse
+Thu 27 Jan 16:42:09 AEDT 2022
+
+ 16:42:09 up 20 days,  4:17,  3 users,  load average: 3.18, 2.66, 2.62
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22  4:46m  3.41s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22  2days  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    Fri18    4:46m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0  85760 6205160 3510548 6373160    0    0    41    32    3    2 13  0 86  0  0
+ 0  0  85760 6205808 3510548 6373024    0    0     0     0  116   45  0  0 100  0  0
+
+top - 16:42:10 up 20 days,  4:18,  3 users,  load average: 3.18, 2.66, 2.62
+Tasks: 159 total,   1 running,  93 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 13.2 us,  0.4 sy,  0.1 ni, 86.1 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  6205872 free,   191428 used,  9883572 buff/cache
+KiB Swap: 33554428 total, 33468668 free,    85760 used. 15685312 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5532   3940 S   0.0  0.0   0:23.61 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.07 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
