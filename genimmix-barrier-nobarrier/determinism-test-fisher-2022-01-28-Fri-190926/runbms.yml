@@ -137,11 +137,11 @@ runtimes:
     release: 8
     type: OpenJDK
   bar:
-    home: /home/claireh/mmtk-openjdk/repos/openjdk/build_barrier/linux-x86_64-normal-server-release/jdk
+    home: /home/claireh/running-ng/builds/build_barrier/linux-x86_64-normal-server-release/jdk
     release: 11
     type: OpenJDK
   no-bar:
-    home: /home/claireh/mmtk-openjdk/repos/openjdk/build_no_barrier/linux-x86_64-normal-server-release/jdk
+    home: /home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk
     release: 11
     type: OpenJDK
   temurin-11:
@@ -211,27 +211,8 @@ suites:
     timing_iteration: 3
     type: DaCapo
   dacapochopin-29a657f:
-    callback: probe.DacapoChopinCallback
-    minheap: GenImmix
+    minheap: adoptopenjdk-15-G1
     minheap_values:
-      GenImmix:
-        avrora: 8
-        batik: 405
-        biojava: 204
-        cassandra: 77
-        eclipse: 558
-        fop: 23
-        graphchi: 256
-        h2o: 70
-        jme: 236
-        jython: 60
-        luindex: 28
-        lusearch: 26
-        pmd: 383
-        sunflow: 21
-        tomcat: 55
-        xalan: 13
-        zxing: 431
       adoptopenjdk-15-G1:
         avrora: 7
         batik: 253
@@ -297,8 +278,8 @@ suites:
         zxing: 97
     path: /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar
     release: evaluation
-    timeout: 600
-    timing_iteration: 10
+    timeout: 120
+    timing_iteration: 3
     type: DaCapo
   dacapochopin-69a704e:
     minheap: adoptopenjdk-15-G1
@@ -347,6 +328,75 @@ suites:
     release: evaluation
     timeout: 120
     timing_iteration: 3
+    type: DaCapo
+  dacapochopin-f480064:
+    callback: probe.DacapoChopinCallback
+    minheap: GenImmix
+    minheap_values:
+      GenImmix:
+        avrora: 8
+        batik: 405
+        biojava: 204
+        cassandra: 77
+        eclipse: 558
+        fop: 23
+        graphchi: 256
+        h2o: 70
+        jme: 236
+        jython: 60
+        luindex: 28
+        lusearch: 26
+        pmd: 383
+        sunflow: 21
+        tomcat: 55
+        xalan: 13
+        zxing: 431
+      temurin-11-G1:
+        avrora: 5
+        batik: 186
+        biojava: 96
+        cassandra: 87
+        eclipse: 423
+        fop: 13
+        graphchi: 255
+        h2: 771
+        h2o: 83
+        jme: 29
+        jython: 27
+        kafka: 201
+        luindex: 41
+        lusearch: 26
+        pmd: 43
+        sunflow: 27
+        tomcat: 19
+        tradebeans: 129
+        tradesoap: 113
+        xalan: 7
+        zxing: 98
+      temurin-17-G1:
+        avrora: 7
+        batik: 190
+        biojava: 95
+        eclipse: 411
+        fop: 15
+        graphchi: 255
+        h2: 773
+        jme: 29
+        jython: 25
+        kafka: 197
+        luindex: 42
+        lusearch: 25
+        pmd: 45
+        sunflow: 27
+        tomcat: 21
+        tradebeans: 131
+        tradesoap: 103
+        xalan: 7
+        zxing: 101
+    path: /usr/share/benchmarks/dacapo/dacapo-evaluation-git-f480064.jar
+    release: evaluation
+    timeout: 600
+    timing_iteration: 5
     type: DaCapo
   specjbb2015:
     path: /usr/share/benchmarks/SPECjbb2015/specjbb2015.jar
