@@ -1,0 +1,98 @@
+includes:
+  - "/home/claireh/running-ng/config/base/runbms.yml"
+
+benchmarks:
+  #dacapochopin-29a657f:
+  dacapochopin-f480064:
+    - avrora
+    - batik
+    - biojava
+    - cassandra
+    - eclipse
+    - fop
+    - graphchi
+    - h2o
+    - jme
+    - jython
+    - luindex
+    - lusearch
+    - pmd
+    - sunflow
+    - tomcat
+    - xalan
+    - zxing
+
+overrides:
+  "suites.dacapochopin-29a657f.timing_iteration": 10
+  "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-29a657f.minheap": GenImmix
+  "suites.dacapochopin-29a657f.timeout": 600
+  "suites.dacapochopin-29a657f.minheap_values.GenImmix":
+    avrora: 8
+    batik: 405
+    biojava: 204
+    cassandra: 77
+    eclipse: 558
+    fop: 23
+    graphchi: 256
+    h2o: 70
+    jme: 236
+    jython: 60
+    luindex: 28
+    lusearch: 26
+    pmd: 383
+    sunflow: 21
+    tomcat: 55
+    xalan: 13
+    zxing: 431
+
+runtimes:
+  no-bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/mmtk-openjdk/repos/openjdk/build_no_barrier/linux-x86_64-normal-server-release/jdk" 
+  bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/mmtk-openjdk/repos/openjdk/build_barrier/linux-x86_64-normal-server-release/jdk" 
+
+modifiers:
+  probes_cp:
+    type: JVMClasspath
+    val: "/home/claireh/probes /home/claireh/probes/probes.jar"
+  probes:
+    type: JVMArg
+    val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
+  min_nursery:
+    type: EnvVar
+    var: MMTK_MIN_NURSERY
+    val: "{0}"
+  max_nursery:
+    type: EnvVar
+    var: MMTK_MAX_NURSERY
+    val: "{0}"
+  nursery_size:
+    type: ModifierSet
+    val: "max_nursery-{0}|min_nursery-{0}"
+  # lowers compiler threshold to 100 (should compile to lvl4 quickly)
+  tier4threshold:
+    type: JVMArg
+    val: "-XX:Tier4CompileThreshold=100"
+  # turns off tiered compilation, stops at level 4
+  stopatlevel4:
+    type: JVMArg
+    val: "-XX:-TieredCompilation -XX:TieredStopAtLevel=4"
+
+# compare normal (no shield) to lowered threshold to no tiered compilation
+configs:
+  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
+  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
+  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|stopatlevel4"
+  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|stopatlevel4"
+
+
+
+
+
