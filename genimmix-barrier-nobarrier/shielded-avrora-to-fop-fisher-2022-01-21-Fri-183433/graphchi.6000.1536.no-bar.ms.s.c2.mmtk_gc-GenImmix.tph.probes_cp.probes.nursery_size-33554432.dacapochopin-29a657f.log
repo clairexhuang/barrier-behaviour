@@ -1,0 +1,292 @@
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 sudo -E cset shield --user claireh --group claireh --exec -- /home/claireh/mmtk-openjdk/repos/openjdk/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms1536M -Xmx1536M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default graphchi
+Sat 22 Jan 00:12:34 AEDT 2022
+
+ 00:12:34 up 14 days, 11:48,  3 users,  load average: 1.02, 1.00, 1.09
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22  5:38m  4.18s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22  6days  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    18:11    5:58m  0.01s  0.01s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0  82944 7138596 3497352 5501584    0    0    53    41    3    0 18  1 82  0  0
+ 0  0  82944 7138344 3497352 5501584    0    0     0     0  146   53  0  0 100  0  0
+
+top - 00:12:35 up 14 days, 11:48,  3 users,  load average: 0.94, 0.99, 1.09
+Tasks: 151 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 17.5 us,  0.4 sy,  0.2 ni, 81.7 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  7138068 free,   143868 used,  8998936 buff/cache
+KiB Swap: 33554428 total, 33471484 free,    82944 used. 15758232 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5576   3984 S   0.0  0.0   0:19.27 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.05 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+cset: --> last message, executed args into cpuset "/user", new pid is: 26487
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,unlimited]
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 1 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 1 in 40710 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 2 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 2 in 35922 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 3 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 3 in 35967 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 4 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 4 in 35783 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.ScanJvmtiExportRoots.time.max	work.ScanObjectSynchronizerRoots.time.min	work.ScanObjectSynchronizerRoots.count	work.Release.time.max	work.ScanCodeCacheRoots.count	work.ScanVMSpecificRoots.time.total	work.ProcessWeakRefs.count	work.ScanCodeCacheRoots.time.min	work.SweepChunk.time.total	work.ScheduleCollection.time.min	work.ReleaseCollector.time.total	work.EndOfGC.time.min	work.GenImmixMatureProcessEdges.count	work.ScanManagementRoots.count	work.ScanStackRoot.count	work.ScanVMSpecificRoots.count	work.ReleaseMutator.time.total	work.Release.time.min	work.SweepChunk.count	work.ScanStringTableRoots.count	work.Finalization.time.total	work.ScanUniverseRoots.count	work.PrepareBlockState.time.min	work.SweepChunk.time.min	work.ReleaseCollector.time.max	work.ScanVMThreadRoots.count	work.ScanVMThreadRoots.time.max	work.ScanAOTLoaderRoots.time.total	work.GenImmixMatureProcessEdges.time.max	work.ScanStackRoot.time.min	work.StopMutators.time.min	work.ProcessWeakRefs.time.total	work.GenImmixMatureProcessEdges.time.total	work.ScanWeakProcessorRoots.time.total	work.ScanJvmtiExportRoots.count	work.ScanVMThreadRoots.time.min	work.EndOfGC.time.total	work.ScanStringTableRoots.time.min	work.ScheduleCollection.time.total	work.ScheduleCollection.count	work.PrepareCollector.time.min	work.ScanManagementRoots.time.max	work.ScanClassLoaderDataGraphRoots.time.max	work.EndOfGC.time.max	work.PrepareMutator.time.total	total-work.count	work.ScanAOTLoaderRoots.time.min	work.Finalization.count	work.Finalization.time.min	work.ScanCodeCacheRoots.time.total	work.ScanStringTableRoots.time.total	work.ScanObjectSynchronizerRoots.time.total	work.Prepare.count	work.ScanStackRoot.time.max	work.Prepare.time.total	work.ScanWeakProcessorRoots.count	work.ScanWeakProcessorRoots.time.max	work.PrepareMutator.count	work.ReleaseMutator.time.min	work.ScanVMThreadRoots.time.total	work.StopMutators.time.max	work.PrepareCollector.time.max	work.ScanStackRoot.time.total	total-work.time.max	work.ScheduleCollection.time.max	work.ScanAOTLoaderRoots.time.max	work.ScanJvmtiExportRoots.time.total	work.PrepareCollector.time.total	work.ScanManagementRoots.time.total	work.ScanObjectSynchronizerRoots.time.max	work.ScanSystemDictionaryRoots.time.total	work.EndOfGC.count	work.Release.count	work.ScanSystemDictionaryRoots.time.min	work.ScanJNIHandlesRoots.time.total	work.PrepareBlockState.time.max	work.ScanUniverseRoots.time.min	work.ProcessWeakRefs.time.min	work.SweepChunk.time.max	work.ReleaseCollector.count	work.ScanUniverseRoots.time.total	work.ReleaseMutator.count	work.ScanStringTableRoots.time.max	work.StopMutators.time.total	work.PrepareCollector.count	work.ScanClassLoaderDataGraphRoots.count	work.Prepare.time.max	work.StopMutators.count	work.PrepareMutator.time.max	work.ScanClassLoaderDataGraphRoots.time.total	work.ReleaseMutator.time.max	work.ScanWeakProcessorRoots.time.min	work.Finalization.time.max	work.ScanJNIHandlesRoots.time.max	work.ScanSystemDictionaryRoots.count	work.ScanAOTLoaderRoots.count	work.ScanJNIHandlesRoots.count	work.PrepareMutator.time.min	work.Release.time.total	work.GenImmixMatureProcessEdges.time.min	work.PrepareBlockState.count	work.ScanJNIHandlesRoots.time.min	work.ScanUniverseRoots.time.max	work.ProcessWeakRefs.time.max	work.ScanVMSpecificRoots.time.min	work.ScanVMSpecificRoots.time.max	work.ScanCodeCacheRoots.time.max	work.Prepare.time.min	work.ReleaseCollector.time.min	work.ScanJvmtiExportRoots.time.min	work.ScanClassLoaderDataGraphRoots.time.min	total-work.time.total	work.PrepareBlockState.time.total	total-work.time.min	work.ScanManagementRoots.time.min	work.ScanSystemDictionaryRoots.time.max	
+380	29851.98	5952.24	1433.00	295.00	380	21246.00	380	330282.00	380	2297621.00	69509543.00	7121.00	213990.00	29172.00	389496	380	6996	380	1606051.00	6937.00	4560	380	2567695.00	380	2057.00	505.00	1721.00	380	6376.00	264463.00	15923257.00	676.00	98941.00	111776.00	8862114732.00	5740407.00	380	1071.00	169344783.00	33872.00	12658800.00	380	143.00	7093.00	102353.00	23381157.00	1603045.00	428724	430.00	380	4808.00	930872635.00	21913898.00	227243.00	380	182694.00	5470726.00	380	20395.00	6996	77.00	618207.00	2453819.00	857.00	101771460.00	23381157.00	2748677.00	1117.00	335679.00	251723.00	918624.00	1105.00	2384626.00	380	380	4161.00	460000.00	215114.00	807.00	163.00	48148.00	760	410932.00	6996	70141.00	316394295.00	760	380	18244.00	380	5139.00	29193080.00	4865.00	8243.00	15994.00	1845.00	380	380	380	72.00	3933213.00	70.00	4560	824.00	2471.00	623.00	633.00	1342.00	2475851.00	8371.00	151.00	491.00	51501.00	10568201056.00	26979148.00	70.00	1289.00	11665.00	
+Total time: 35804.22 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f graphchi PASSED in 35804 msec =====
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 sudo -E cset shield --user claireh --group claireh --exec -- /home/claireh/mmtk-openjdk/repos/openjdk/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms1536M -Xmx1536M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default graphchi
+Sat 22 Jan 00:19:38 AEDT 2022
+
+ 00:19:38 up 14 days, 11:55,  3 users,  load average: 2.56, 2.06, 1.56
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22  5:45m  4.22s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22  6days  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    18:11    6:05m  0.01s  0.01s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0  82944 4129908 3497680 8509856    0    0    53    41    3    0 18  1 82  0  0
+ 0  0  82944 4130172 3497680 8509828    0    0     0     0  158   52  0  0 100  0  0
+
+top - 00:19:39 up 14 days, 11:55,  3 users,  load average: 2.56, 2.06, 1.56
+Tasks: 152 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 17.5 us,  0.4 sy,  0.2 ni, 81.7 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  4130164 free,   143200 used, 12007508 buff/cache
+KiB Swap: 33554428 total, 33471484 free,    82944 used. 15758900 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5576   3984 S   0.0  0.0   0:19.27 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.05 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+cset: --> last message, executed args into cpuset "/user", new pid is: 26787
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 2 processors detected, 2 threads used to drive the workload, in a possible range of [1,unlimited]
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 1 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 1 in 40356 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 2 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 2 in 35567 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 3 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 3 in 35664 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting warmup 4 =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+===== DaCapo evaluation-git-29a657f graphchi completed warmup 4 in 35368 msec =====
+===== DaCapo evaluation-git-29a657f graphchi starting =====
+Found shards -- no need to preprocess
+Set latent factor dimension to: 20
+Initializing latent factors for 285050 vertices
+Creating 1 blocks
+Total edges: 1000000
+5700980 elements, check: 3
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.PrepareMutator.count	work.ScanVMThreadRoots.time.max	work.ScanObjectSynchronizerRoots.time.max	total-work.time.min	work.ScanUniverseRoots.time.total	work.ScanJNIHandlesRoots.time.total	work.Release.time.max	work.ScanAOTLoaderRoots.time.max	work.Prepare.time.total	work.ProcessWeakRefs.time.min	work.ScanJvmtiExportRoots.time.total	work.SweepChunk.count	work.ScanObjectSynchronizerRoots.count	work.SweepChunk.time.max	work.Release.time.min	work.ReleaseCollector.count	work.PrepareBlockState.time.min	work.ProcessWeakRefs.time.total	work.ScanSystemDictionaryRoots.time.min	work.ScanJvmtiExportRoots.time.min	work.Prepare.time.min	work.EndOfGC.count	work.PrepareMutator.time.min	work.StopMutators.time.max	work.ScanObjectSynchronizerRoots.time.min	work.ReleaseMutator.time.min	work.Prepare.count	work.EndOfGC.time.max	work.ScanCodeCacheRoots.count	work.ScanStackRoot.time.min	work.ScanManagementRoots.time.total	work.ScanStackRoot.count	work.ScanSystemDictionaryRoots.time.max	work.PrepareCollector.time.max	work.ScanClassLoaderDataGraphRoots.count	work.EndOfGC.time.total	work.ScanUniverseRoots.time.min	work.ScanJNIHandlesRoots.count	work.StopMutators.time.total	work.ReleaseCollector.time.min	work.ScanClassLoaderDataGraphRoots.time.min	work.ScanSystemDictionaryRoots.time.total	work.ScanManagementRoots.time.max	work.Release.time.total	work.ScanVMSpecificRoots.time.total	work.PrepareMutator.time.total	work.StopMutators.time.min	work.ScanUniverseRoots.count	work.Prepare.time.max	work.ScanJNIHandlesRoots.time.min	work.PrepareBlockState.count	work.ScanVMSpecificRoots.time.min	work.ScanStackRoot.time.total	work.SweepChunk.time.min	work.ReleaseMutator.time.total	work.ScanVMThreadRoots.time.total	work.GenImmixMatureProcessEdges.count	work.ScanVMThreadRoots.count	work.ScanClassLoaderDataGraphRoots.time.total	work.ReleaseCollector.time.total	work.SweepChunk.time.total	work.ScanJNIHandlesRoots.time.max	work.ScanStringTableRoots.count	work.ScanStringTableRoots.time.max	work.PrepareBlockState.time.total	work.ScanVMThreadRoots.time.min	work.Release.count	work.ScanManagementRoots.time.min	work.ScheduleCollection.time.total	work.Finalization.count	work.Finalization.time.total	work.EndOfGC.time.min	work.ReleaseCollector.time.max	work.ReleaseMutator.time.max	work.ScheduleCollection.time.min	work.ReleaseMutator.count	work.ScanCodeCacheRoots.time.total	work.PrepareMutator.time.max	work.ScanJvmtiExportRoots.time.max	work.ScanStringTableRoots.time.total	work.ScanAOTLoaderRoots.time.total	work.ScanWeakProcessorRoots.time.min	work.Finalization.time.min	work.GenImmixMatureProcessEdges.time.total	work.ProcessWeakRefs.count	work.StopMutators.count	work.ScanObjectSynchronizerRoots.time.total	work.GenImmixMatureProcessEdges.time.min	work.ScanVMSpecificRoots.time.max	work.ScanStringTableRoots.time.min	work.PrepareCollector.time.min	work.Finalization.time.max	work.ScanUniverseRoots.time.max	work.ScanWeakProcessorRoots.count	total-work.count	work.ProcessWeakRefs.time.max	work.GenImmixMatureProcessEdges.time.max	work.ScanClassLoaderDataGraphRoots.time.max	work.PrepareBlockState.time.max	work.ScanVMSpecificRoots.count	total-work.time.max	work.ScanWeakProcessorRoots.time.total	work.ScanManagementRoots.count	work.ScanSystemDictionaryRoots.count	work.ScanJvmtiExportRoots.count	work.ScanCodeCacheRoots.time.min	work.PrepareCollector.count	total-work.time.total	work.PrepareCollector.time.total	work.ScheduleCollection.time.max	work.ScanStackRoot.time.max	work.ScanCodeCacheRoots.time.max	work.ScheduleCollection.count	work.ScanAOTLoaderRoots.time.min	work.ScanAOTLoaderRoots.count	work.ScanWeakProcessorRoots.time.max	
+380	29567.07	5960.37	6996	5181.00	1046.00	69.00	409865.00	442168.00	23030.00	1324.00	5295428.00	123.00	338426.00	4560	380	53491.00	6961.00	760	2217.00	97074.00	4244.00	485.00	8580.00	380	75.00	2455915.00	314.00	74.00	380	15917121.00	380	719.00	895904.00	6996	10964.00	1149.00	380	153117918.00	822.00	380	348542900.00	135.00	51825.00	2329629.00	6255.00	4009008.00	312433.00	1560942.00	96432.00	380	18368.00	806.00	4557	611.00	101428219.00	336.00	1607611.00	532461.00	376670	380	29223336.00	219217.00	69874499.00	1955.00	380	65678.00	26927860.00	993.00	380	1507.00	9958289.00	380	2501318.00	28840.00	786.00	3474.00	6838.00	6996	931167943.00	4298.00	1637.00	21486176.00	250021.00	8146.00	4759.00	8823805562.00	380	380	203396.00	69.00	1271.00	33980.00	169.00	15345.00	1629.00	380	415895	1581.00	2295991.00	87881.00	11697.00	380	15917121.00	5349295.00	380	380	380	2297705.00	760	10542231576.00	344678.00	221674.00	182885.00	2480371.00	380	380.00	380	22038.00	
+Total time: 35527.44 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f graphchi PASSED in 35527 msec =====
