@@ -1,0 +1,870 @@
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 /home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms420M -Xmx420M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default h2o
+Sat 29 Jan 11:13:14 AEDT 2022
+
+ 11:13:14 up 21 days, 22:49,  3 users,  load average: 3.04, 2.95, 3.12
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22 15:37m 16.03s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22 15:31m  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    21Jan22 22:47m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0 113408 1938372 3423108 10777572    0    0    41    36    1    2 14  1 85  0  0
+ 0  0 113408 1938120 3423108 10777228    0    0     0   344  145   54  0  0 100  0  0
+
+top - 11:13:15 up 21 days, 22:49,  3 users,  load average: 3.04, 2.95, 3.12
+Tasks: 151 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 14.3 us,  0.4 sy,  0.1 ni, 85.0 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  1937812 free,   142724 used, 14200336 buff/cache
+KiB Swap: 33554428 total, 33441020 free,   113408 used. 15760796 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5440   3912 S   0.0  0.0   0:24.90 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.08 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 8 processors detected, 8 threads used to drive the workload, in a possible range of [1,1024]
+===== DaCapo evaluation-git-29a657f h2o starting warmup 1 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 1 in 21354 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 2 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 2 in 9499 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 3 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 3 in 8110 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 4 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 4 in 8746 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.EndOfGC.time.total	work.ReleaseMutator.count	work.ScanJNIHandlesRoots.time.total	work.ScanStringTableRoots.time.max	work.ReleaseMutator.time.min	work.ScanManagementRoots.time.total	work.ScanJvmtiExportRoots.time.total	work.Prepare.time.min	work.ScanAOTLoaderRoots.time.min	work.StopMutators.time.min	work.ScanManagementRoots.time.min	work.ScanSystemDictionaryRoots.time.max	work.EndOfGC.time.min	work.PrepareBlockState.time.max	work.PrepareCollector.time.total	work.PrepareBlockState.count	work.ReleaseCollector.time.min	work.ScanObjectSynchronizerRoots.time.max	work.GenImmixMatureProcessEdges.time.min	work.PrepareMutator.time.min	work.ProcessWeakRefs.time.total	work.ScanSystemDictionaryRoots.count	work.ScanWeakProcessorRoots.time.min	work.ScanVMThreadRoots.time.total	work.GenImmixMatureProcessEdges.time.total	work.ScheduleCollection.time.max	work.SweepChunk.time.total	work.EndOfGC.time.max	work.ScanClassLoaderDataGraphRoots.time.min	work.ScanCodeCacheRoots.count	work.ScanWeakProcessorRoots.count	total-work.time.min	work.ProcessWeakRefs.count	work.ScanJvmtiExportRoots.time.max	work.ScanClassLoaderDataGraphRoots.time.max	work.Release.time.total	work.ScanManagementRoots.count	work.Release.time.max	work.ReleaseCollector.time.total	work.ProcessWeakRefs.time.min	work.ScanJvmtiExportRoots.count	work.ScanStringTableRoots.time.min	work.PrepareMutator.time.max	total-work.time.total	work.ScanWeakProcessorRoots.time.max	work.Prepare.time.max	work.ScanCodeCacheRoots.time.total	work.ScanObjectSynchronizerRoots.time.min	work.ScanWeakProcessorRoots.time.total	work.ScanUniverseRoots.time.total	work.StopMutators.time.max	work.ScanVMSpecificRoots.count	work.ScanJNIHandlesRoots.time.max	work.ScanStackRoot.count	work.PrepareBlockState.time.total	work.Finalization.time.total	work.StopMutators.time.total	work.GenImmixMatureProcessEdges.count	work.StopMutators.count	work.PrepareCollector.time.min	work.ScanAOTLoaderRoots.time.max	work.ScheduleCollection.time.total	work.Release.count	work.ReleaseCollector.time.max	work.ScanAOTLoaderRoots.count	work.Finalization.time.max	work.ScanVMThreadRoots.time.min	work.ScanClassLoaderDataGraphRoots.count	work.ScanStackRoot.time.min	work.ScanStackRoot.time.total	work.ScanVMSpecificRoots.time.min	work.Prepare.count	work.ScanUniverseRoots.time.max	total-work.count	work.ScanManagementRoots.time.max	work.ScanSystemDictionaryRoots.time.total	work.ProcessWeakRefs.time.max	work.GenImmixMatureProcessEdges.time.max	work.ScanCodeCacheRoots.time.max	work.ReleaseMutator.time.max	work.SweepChunk.count	work.ScheduleCollection.count	work.ScanVMThreadRoots.count	work.ReleaseCollector.count	work.ScanStringTableRoots.time.total	work.SweepChunk.time.min	work.ScanCodeCacheRoots.time.min	work.PrepareMutator.count	work.ScanObjectSynchronizerRoots.time.total	work.Finalization.count	work.ScanUniverseRoots.time.min	work.ScanJvmtiExportRoots.time.min	work.ScanJNIHandlesRoots.count	work.EndOfGC.count	work.ScanVMSpecificRoots.time.max	work.ReleaseMutator.time.total	work.ScanSystemDictionaryRoots.time.min	work.ScheduleCollection.time.min	work.ScanVMSpecificRoots.time.total	work.ScanStackRoot.time.max	work.PrepareBlockState.time.min	work.ScanVMThreadRoots.time.max	work.SweepChunk.time.max	work.ScanObjectSynchronizerRoots.count	work.ScanUniverseRoots.count	work.Release.time.min	total-work.time.max	work.PrepareCollector.count	work.ScanStringTableRoots.count	work.Finalization.time.min	work.Prepare.time.total	work.ScanAOTLoaderRoots.time.total	work.ScanJNIHandlesRoots.time.min	work.ScanClassLoaderDataGraphRoots.time.total	work.PrepareCollector.time.max	work.PrepareMutator.time.total	
+257	4451.75	4593.87	10446701.00	13901	1100473.00	525407.00	88.00	1684222.00	872270.00	13216.00	727.00	224614.00	3676.00	45136.00	31816.00	66761.00	1761638.00	2313	110.00	8063.00	71.00	76.00	85835.00	257	11622.00	4162436.00	19277166903.00	77236.00	63770894.00	189868.00	160348.00	257	257	71.00	257	16259.00	333677.00	40112300.00	257	20313274.00	644545.00	117.00	257	172836.00	32327.00	21527407124.00	504731.00	504936.00	1264028800.00	388.00	12922390.00	629632.00	1301441.00	257	20929.00	13901	60616026.00	2262475.00	146720636.00	724831	257	137.00	17463.00	6850759.00	257	1003.00	257	31680.00	1149.00	257	597.00	458764341.00	653.00	257	29722.00	780412	33971.00	5511891.00	1452.00	2063379.00	5524156.00	17420.00	2313	257	257	2056	64897660.00	9503.00	4792554.00	13901	410921.00	257	1023.00	1017.00	257	257	525132.00	4319443.00	8863.00	11621.00	4676322.00	516469.00	3780.00	1789074.00	72934.00	257	257	51687.00	20313274.00	2056	257	6082.00	11499936.00	951129.00	1837.00	74517212.00	16286.00	6019334.00	
+Total time: 9045.62 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f h2o PASSED in 9045 msec =====
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 /home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms420M -Xmx420M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default h2o
+Sat 29 Jan 11:23:34 AEDT 2022
+
+ 11:23:34 up 21 days, 22:59,  3 users,  load average: 2.42, 2.74, 2.96
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22 15:48m 16.20s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22 15:41m  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    21Jan22 22:58m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0 113408 1967600 3423432 10748220    0    0    41    36    1    2 14  1 85  0  0
+ 0  0 113408 1967552 3423432 10747812    0    0     0     0  148   54  0  0 100  0  0
+
+top - 11:23:35 up 21 days, 22:59,  3 users,  load average: 2.42, 2.74, 2.96
+Tasks: 151 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 14.3 us,  0.4 sy,  0.1 ni, 85.0 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  1966756 free,   142872 used, 14171244 buff/cache
+KiB Swap: 33554428 total, 33441020 free,   113408 used. 15760648 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5440   3912 S   0.0  0.0   0:24.91 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.08 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 8 processors detected, 8 threads used to drive the workload, in a possible range of [1,1024]
+===== DaCapo evaluation-git-29a657f h2o starting warmup 1 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 1 in 20943 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 2 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 2 in 9646 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 3 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 3 in 8953 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 4 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 4 in 8704 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.ScanCodeCacheRoots.count	work.PrepareCollector.time.min	work.ReleaseCollector.time.min	work.GenImmixMatureProcessEdges.time.max	work.PrepareBlockState.time.total	work.PrepareBlockState.count	work.ScanUniverseRoots.time.total	work.ReleaseCollector.time.max	work.GenImmixMatureProcessEdges.count	work.ScanClassLoaderDataGraphRoots.count	work.ScanUniverseRoots.count	work.ScheduleCollection.time.total	work.StopMutators.time.min	work.ScanWeakProcessorRoots.time.min	work.ReleaseMutator.time.max	work.ScanSystemDictionaryRoots.count	work.ScanCodeCacheRoots.time.min	work.ScanWeakProcessorRoots.time.max	work.ScanClassLoaderDataGraphRoots.time.max	work.ScanSystemDictionaryRoots.time.total	work.PrepareCollector.count	work.ReleaseMutator.count	work.ReleaseMutator.time.min	work.Release.count	work.ScheduleCollection.count	work.PrepareCollector.time.max	work.Release.time.max	work.ScanJNIHandlesRoots.count	work.ScanManagementRoots.time.total	work.StopMutators.time.total	work.ScanObjectSynchronizerRoots.time.total	work.SweepChunk.time.max	work.ScanSystemDictionaryRoots.time.min	work.ReleaseCollector.count	work.ScanVMThreadRoots.count	work.Prepare.time.total	work.ScanStackRoot.time.min	work.ScanJNIHandlesRoots.time.min	work.EndOfGC.count	work.ScanClassLoaderDataGraphRoots.time.min	work.ProcessWeakRefs.count	work.ScanStringTableRoots.count	work.ProcessWeakRefs.time.total	work.PrepareMutator.time.total	work.PrepareCollector.time.total	work.ScanClassLoaderDataGraphRoots.time.total	work.ProcessWeakRefs.time.min	work.ScanJNIHandlesRoots.time.total	work.ScanManagementRoots.count	work.ReleaseMutator.time.total	work.ScanStackRoot.time.max	work.ScanVMThreadRoots.time.min	total-work.time.min	work.ScanJvmtiExportRoots.time.max	work.ScheduleCollection.time.min	work.ScanVMSpecificRoots.time.min	work.ScanStackRoot.time.total	work.ScanWeakProcessorRoots.count	total-work.time.max	work.ScanObjectSynchronizerRoots.time.min	work.StopMutators.time.max	work.Prepare.time.min	work.ScanStringTableRoots.time.max	work.ScanVMSpecificRoots.time.total	total-work.count	work.ScanUniverseRoots.time.min	work.ScanWeakProcessorRoots.time.total	work.PrepareBlockState.time.max	work.ScanStackRoot.count	work.ScanAOTLoaderRoots.count	work.PrepareMutator.time.min	work.ScanVMSpecificRoots.count	work.ScanVMSpecificRoots.time.max	work.Finalization.count	work.PrepareBlockState.time.min	work.Release.time.min	work.ScanVMThreadRoots.time.total	work.ScanAOTLoaderRoots.time.total	work.Finalization.time.min	work.GenImmixMatureProcessEdges.time.total	work.PrepareMutator.time.max	work.SweepChunk.count	work.GenImmixMatureProcessEdges.time.min	work.ScanJNIHandlesRoots.time.max	work.ScanObjectSynchronizerRoots.count	work.ProcessWeakRefs.time.max	work.Release.time.total	work.EndOfGC.time.min	work.EndOfGC.time.total	work.ScanAOTLoaderRoots.time.min	work.ScanManagementRoots.time.max	work.StopMutators.count	work.ReleaseCollector.time.total	work.SweepChunk.time.min	work.ScanStringTableRoots.time.total	work.ScanAOTLoaderRoots.time.max	work.ScanJvmtiExportRoots.count	total-work.time.total	work.ScanObjectSynchronizerRoots.time.max	work.ScanJvmtiExportRoots.time.min	work.ScanVMThreadRoots.time.max	work.EndOfGC.time.max	work.ScheduleCollection.time.max	work.Prepare.time.max	work.ScanStringTableRoots.time.min	work.Finalization.time.max	work.ScanManagementRoots.time.min	work.ScanJvmtiExportRoots.time.total	work.ScanCodeCacheRoots.time.max	work.SweepChunk.time.total	work.Finalization.time.total	work.ScanUniverseRoots.time.max	work.ScanCodeCacheRoots.time.total	work.Prepare.count	work.ScanSystemDictionaryRoots.time.max	work.PrepareMutator.count	
+251	4383.58	4421.68	251	115.00	109.00	5701462.00	59449512.00	2259	793309.00	15448.00	717432	251	251	6889565.00	264335.00	14874.00	18434.00	251	4860678.00	402174.00	340178.00	5822233.00	2008	14350	80.00	251	251	24060.00	335477.00	251	2086398.00	144129479.00	432079.00	58937.00	11741.00	2008	251	12749477.00	585.00	2128.00	251	134797.00	251	251	109548.00	6312883.00	1699489.00	71960361.00	159.00	1067701.00	251	4280616.00	564412.00	1078.00	70.00	12279.00	11360.00	711.00	425606612.00	251	5701462.00	480.00	1210227.00	13544.00	531960.00	3738260.00	774036	1239.00	12157815.00	63126.00	14350	251	81.00	251	548680.00	251	4340.00	50212.00	2038216.00	910162.00	5353.00	18839031421.00	22986.00	2259	70.00	26108.00	251	17540.00	20120670.00	31313.00	10994616.00	696.00	394773.00	251	708301.00	4890.00	64034730.00	22795.00	251	21017636001.00	11308.00	1021.00	395540.00	190293.00	100886.00	787141.00	144088.00	33240.00	3612.00	793048.00	5602523.00	60360032.00	2194688.00	28547.00	1257164780.00	251	50955.00	14350	
+Total time: 8805.26 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f h2o PASSED in 8805 msec =====
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 /home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms420M -Xmx420M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default h2o
+Sat 29 Jan 11:33:55 AEDT 2022
+
+ 11:33:55 up 21 days, 23:09,  3 users,  load average: 4.51, 3.39, 3.19
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22 15:58m 16.37s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22 15:51m  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    21Jan22 23:08m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0 113408 1962064 3423504 10753192    0    0    41    36    1    3 14  1 85  0  0
+ 0  0 113408 1961988 3423504 10753132    0    0     0     0  124   40  0  0 100  0  0
+
+top - 11:33:56 up 21 days, 23:09,  3 users,  load average: 4.51, 3.39, 3.19
+Tasks: 152 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 14.3 us,  0.4 sy,  0.1 ni, 85.0 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  1961504 free,   143064 used, 14176304 buff/cache
+KiB Swap: 33554428 total, 33441020 free,   113408 used. 15760456 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5440   3912 S   0.0  0.0   0:24.92 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.08 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 8 processors detected, 8 threads used to drive the workload, in a possible range of [1,1024]
+===== DaCapo evaluation-git-29a657f h2o starting warmup 1 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 1 in 21271 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 2 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 2 in 9788 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 3 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 3 in 8463 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 4 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 4 in 8670 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.ScanJvmtiExportRoots.time.total	work.Finalization.time.min	work.GenImmixMatureProcessEdges.time.max	work.ScanJvmtiExportRoots.time.max	work.ScanStringTableRoots.time.max	work.ReleaseMutator.time.total	work.PrepareBlockState.time.total	work.ScanCodeCacheRoots.time.max	work.ScanStringTableRoots.time.total	work.Release.time.max	work.PrepareCollector.time.total	work.ScanManagementRoots.time.min	work.SweepChunk.time.min	work.ScanSystemDictionaryRoots.time.max	work.ScanAOTLoaderRoots.time.total	work.EndOfGC.time.total	work.ScanCodeCacheRoots.time.min	work.EndOfGC.time.min	work.ScanStackRoot.time.max	work.ScanClassLoaderDataGraphRoots.time.total	work.SweepChunk.count	work.EndOfGC.time.max	work.ScheduleCollection.count	work.ScanManagementRoots.count	work.ScanVMSpecificRoots.time.min	work.StopMutators.count	work.ReleaseMutator.count	work.Release.count	work.ScanJvmtiExportRoots.count	work.ScanObjectSynchronizerRoots.time.total	work.ProcessWeakRefs.time.max	work.ProcessWeakRefs.count	work.StopMutators.time.min	work.EndOfGC.count	work.ReleaseCollector.count	work.ScanJvmtiExportRoots.time.min	work.ScanJNIHandlesRoots.time.total	work.SweepChunk.time.total	work.Prepare.time.total	work.ReleaseCollector.time.total	total-work.time.min	work.ScanSystemDictionaryRoots.count	work.ScanUniverseRoots.time.max	work.ReleaseMutator.time.min	work.ScanUniverseRoots.count	work.PrepareBlockState.time.min	work.PrepareCollector.time.min	work.ScheduleCollection.time.total	work.ProcessWeakRefs.time.min	work.ScanVMThreadRoots.time.total	work.ScanAOTLoaderRoots.time.min	work.Finalization.time.max	work.ScanClassLoaderDataGraphRoots.count	work.Prepare.count	work.PrepareBlockState.time.max	work.ScanJNIHandlesRoots.count	work.ScanJNIHandlesRoots.time.max	total-work.time.total	work.PrepareCollector.count	work.Finalization.count	total-work.time.max	work.GenImmixMatureProcessEdges.count	work.ScanVMThreadRoots.time.max	work.ScanUniverseRoots.time.min	work.ProcessWeakRefs.time.total	work.Prepare.time.min	work.Release.time.min	work.PrepareMutator.time.min	work.ScanWeakProcessorRoots.time.min	work.ScanVMThreadRoots.time.min	work.ScanManagementRoots.time.total	work.ReleaseCollector.time.max	work.ScanVMSpecificRoots.count	work.Finalization.time.total	work.ScanObjectSynchronizerRoots.time.max	work.ScanWeakProcessorRoots.time.total	work.ScanStringTableRoots.count	work.ScanVMThreadRoots.count	work.ScanWeakProcessorRoots.time.max	work.PrepareMutator.time.max	work.ScanObjectSynchronizerRoots.time.min	work.ScanClassLoaderDataGraphRoots.time.max	work.ScanStackRoot.time.total	work.ScanStackRoot.time.min	work.PrepareMutator.time.total	work.ScanManagementRoots.time.max	work.ScanAOTLoaderRoots.count	work.PrepareBlockState.count	work.ScanVMSpecificRoots.time.max	work.ReleaseCollector.time.min	work.ScanAOTLoaderRoots.time.max	work.ScanSystemDictionaryRoots.time.total	work.ReleaseMutator.time.max	work.ScanVMSpecificRoots.time.total	work.ScanCodeCacheRoots.time.total	total-work.count	work.ScanObjectSynchronizerRoots.count	work.Prepare.time.max	work.ScanStringTableRoots.time.min	work.ScanSystemDictionaryRoots.time.min	work.GenImmixMatureProcessEdges.time.min	work.GenImmixMatureProcessEdges.time.total	work.PrepareCollector.time.max	work.ScanStackRoot.count	work.ScanCodeCacheRoots.count	work.ScheduleCollection.time.min	work.Release.time.total	work.SweepChunk.time.max	work.StopMutators.time.total	work.ScanJNIHandlesRoots.time.min	work.ScanClassLoaderDataGraphRoots.time.min	work.ScheduleCollection.time.max	work.StopMutators.time.max	work.PrepareMutator.count	work.ScanWeakProcessorRoots.count	work.ScanUniverseRoots.time.total	
+252	4427.18	4542.08	940636.00	5827.00	5040091.00	18524.00	582669.00	4142691.00	59490782.00	7859779.00	62867857.00	398847.00	1794327.00	3173.00	8207.00	39703.00	931437.00	11463276.00	4753111.00	31603.00	3975285.00	72544138.00	2268	118614.00	252	252	703.00	252	13635	252	252	462588.00	18055.00	252	200773.00	252	2016	792.00	1555531.00	60688726.00	15459882.00	698941.00	70.00	252	15305.00	98.00	252	3603.00	140.00	6956421.00	121.00	2995237.00	605.00	28317.00	252	252	64507.00	252	439984.00	21055192626.00	2016	252	7859779.00	717971	433070.00	1024.00	114981.00	12500.00	39815.00	74.00	12395.00	1267.00	2247247.00	13523.00	252	2235666.00	19055.00	12544821.00	252	252	484709.00	24458.00	558.00	341619.00	454812358.00	809.00	5723468.00	374143.00	252	2268	490786.00	111.00	17852.00	5530268.00	12057.00	2648171.00	1226921519.00	772484	252	3284271.00	172898.00	9955.00	70.00	18880188518.00	32933.00	13635	252	11745.00	20639885.00	57281.00	137933294.00	2196.00	139300.00	64309.00	1273289.00	13635	252	659960.00	
+Total time: 8969.26 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f h2o PASSED in 8969 msec =====
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 /home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms420M -Xmx420M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default h2o
+Sat 29 Jan 11:44:18 AEDT 2022
+
+ 11:44:18 up 21 days, 23:20,  3 users,  load average: 3.12, 3.00, 3.06
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22 16:08m 16.55s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22 16:02m  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    21Jan22 23:19m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0 113408 1959528 3423576 10756500    0    0    41    36    1    0 14  1 85  0  0
+ 0  0 113408 1959560 3423576 10756200    0    0     0     0  146   57  0  0 100  0  0
+
+top - 11:44:19 up 21 days, 23:20,  3 users,  load average: 3.12, 3.00, 3.06
+Tasks: 152 total,   1 running,  86 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 14.3 us,  0.4 sy,  0.1 ni, 84.9 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  1958796 free,   142300 used, 14179776 buff/cache
+KiB Swap: 33554428 total, 33441020 free,   113408 used. 15761220 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5440   3912 S   0.0  0.0   0:24.93 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.08 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 8 processors detected, 8 threads used to drive the workload, in a possible range of [1,1024]
+===== DaCapo evaluation-git-29a657f h2o starting warmup 1 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 1 in 21224 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 2 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 2 in 9698 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 3 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 3 in 8493 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 4 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 4 in 8742 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.ProcessWeakRefs.time.min	work.ScanObjectSynchronizerRoots.time.min	work.ScheduleCollection.time.total	work.Release.time.min	work.ProcessWeakRefs.time.total	work.ScanJNIHandlesRoots.time.max	work.ScanStringTableRoots.count	work.ScanCodeCacheRoots.time.max	work.GenImmixMatureProcessEdges.time.total	work.ScanSystemDictionaryRoots.time.max	work.ReleaseMutator.time.min	work.ScanAOTLoaderRoots.time.max	work.ScanWeakProcessorRoots.count	work.ScanWeakProcessorRoots.time.total	total-work.time.max	work.ScheduleCollection.time.max	work.ScanVMThreadRoots.time.total	work.ScanVMSpecificRoots.time.max	work.ScanAOTLoaderRoots.time.total	work.ScanManagementRoots.time.total	work.ScanCodeCacheRoots.count	work.ScanStringTableRoots.time.total	work.Finalization.count	work.StopMutators.time.min	work.Release.time.max	work.ScanWeakProcessorRoots.time.max	work.Prepare.time.max	work.ProcessWeakRefs.count	work.ScanSystemDictionaryRoots.count	work.SweepChunk.count	work.ScanJNIHandlesRoots.count	work.SweepChunk.time.total	total-work.time.total	work.PrepareMutator.count	work.EndOfGC.time.max	work.ScanJvmtiExportRoots.time.max	work.ReleaseMutator.time.total	work.ScanJvmtiExportRoots.time.min	work.Finalization.time.min	work.StopMutators.time.max	work.ScanManagementRoots.time.min	work.EndOfGC.time.min	work.ScanSystemDictionaryRoots.time.total	work.ScanClassLoaderDataGraphRoots.count	work.EndOfGC.time.total	work.PrepareMutator.time.max	work.GenImmixMatureProcessEdges.count	work.StopMutators.time.total	work.GenImmixMatureProcessEdges.time.max	work.ScanClassLoaderDataGraphRoots.time.min	work.ReleaseCollector.time.min	work.PrepareCollector.time.total	work.GenImmixMatureProcessEdges.time.min	work.PrepareCollector.time.max	work.ScanVMSpecificRoots.count	work.ScanObjectSynchronizerRoots.count	work.ScanStackRoot.count	work.ScanJNIHandlesRoots.time.total	work.ScheduleCollection.time.min	work.Release.time.total	work.ScanJvmtiExportRoots.count	work.ScanObjectSynchronizerRoots.time.total	work.ReleaseMutator.time.max	work.PrepareBlockState.time.max	work.ScanObjectSynchronizerRoots.time.max	work.Finalization.time.max	work.ScanCodeCacheRoots.time.min	work.ScanVMThreadRoots.time.min	work.StopMutators.count	work.ScanWeakProcessorRoots.time.min	work.ScanAOTLoaderRoots.count	work.ScanClassLoaderDataGraphRoots.time.max	work.ScanUniverseRoots.time.min	work.PrepareCollector.time.min	work.PrepareMutator.time.min	work.PrepareCollector.count	work.PrepareBlockState.time.min	total-work.time.min	work.ScanUniverseRoots.time.total	work.ScheduleCollection.count	work.ReleaseCollector.time.total	work.PrepareBlockState.count	work.ScanStringTableRoots.time.min	work.ProcessWeakRefs.time.max	work.ScanVMThreadRoots.time.max	work.ScanVMThreadRoots.count	work.ScanManagementRoots.count	work.ScanCodeCacheRoots.time.total	work.Finalization.time.total	work.Release.count	work.Prepare.count	work.ReleaseCollector.count	work.ScanStringTableRoots.time.max	work.ScanSystemDictionaryRoots.time.min	work.ReleaseMutator.count	work.EndOfGC.count	work.ScanJNIHandlesRoots.time.min	work.ScanStackRoot.time.total	work.Prepare.time.min	work.ScanUniverseRoots.count	work.ScanJvmtiExportRoots.time.total	work.SweepChunk.time.min	work.ReleaseCollector.time.max	work.ScanUniverseRoots.time.max	work.SweepChunk.time.max	work.ScanStackRoot.time.min	work.ScanVMSpecificRoots.time.total	work.ScanClassLoaderDataGraphRoots.time.total	work.ScanManagementRoots.time.max	work.ScanAOTLoaderRoots.time.min	work.ScanStackRoot.time.max	total-work.count	work.ScanVMSpecificRoots.time.min	work.PrepareBlockState.time.total	work.PrepareMutator.time.total	work.Prepare.time.total	
+252	4314.13	4599.60	174.00	541.00	7291606.00	47364.00	121088.00	21929.00	252	5539109.00	19086550843.00	44757.00	100.00	15619.00	252	11071312.00	13380063.00	128795.00	2702296.00	13380063.00	870387.00	1739785.00	252	63408359.00	252	265532.00	532154.00	87610.00	594253.00	252	252	2268	252	61429379.00	21293252671.00	14405	185718.00	17130.00	4290542.00	1125.00	5738.00	1332612.00	3117.00	31686.00	5566449.00	252	10463940.00	28200.00	711389	149604618.00	9720344.00	181502.00	117.00	1785199.00	70.00	20014.00	252	252	14405	1097354.00	10664.00	22048235.00	252	472935.00	18400.00	56970.00	21556.00	32585.00	4791446.00	1171.00	252	14682.00	252	352008.00	1115.00	134.00	70.00	2016	4888.00	70.00	702452.00	252	653606.00	2268	163214.00	17926.00	619524.00	252	252	1239363298.00	2126802.00	252	252	2016	435269.00	10532.00	14405	252	1637.00	451364857.00	13472.00	252	843781.00	8347.00	7125.00	23397.00	58950.00	604.00	17601548.00	73423374.00	35126.00	630.00	662753.00	768212	581.00	58993455.00	6355745.00	11309426.00	
+Total time: 8913.73 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f h2o PASSED in 8914 msec =====
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 /home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms420M -Xmx420M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default h2o
+Sat 29 Jan 11:54:40 AEDT 2022
+
+ 11:54:40 up 21 days, 23:30,  3 users,  load average: 2.43, 2.64, 2.88
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22 16:19m 16.71s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22 16:12m  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    21Jan22 23:29m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0 113408 1934720 3436416 10570592    0    0    41    36    1    1 14  1 85  0  0
+ 0  0 113408 1934068 3436416 10570148    0    0     0     0  392 2264  0  0 99  0  0
+
+top - 11:54:41 up 21 days, 23:30,  3 users,  load average: 2.43, 2.64, 2.88
+Tasks: 166 total,   1 running, 100 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 14.3 us,  0.4 sy,  0.1 ni, 84.9 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  1934352 free,   339956 used, 14006564 buff/cache
+KiB Swap: 33554428 total, 33441020 free,   113408 used. 15563548 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0   77676   5440   3912 S   0.0  0.0   0:24.95 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.08 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [kworker/0:0H]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 8 processors detected, 8 threads used to drive the workload, in a possible range of [1,1024]
+===== DaCapo evaluation-git-29a657f h2o starting warmup 1 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 1 in 21040 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 2 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 2 in 9885 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 3 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 3 in 8713 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 4 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 4 in 8883 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.PrepareMutator.time.min	work.SweepChunk.count	work.StopMutators.count	work.PrepareMutator.time.max	work.ReleaseCollector.count	work.ReleaseMutator.time.min	work.Release.time.max	work.ScanManagementRoots.time.max	work.EndOfGC.time.min	work.StopMutators.time.min	work.ScanAOTLoaderRoots.time.max	work.ScanSystemDictionaryRoots.count	work.ScanObjectSynchronizerRoots.time.total	work.Finalization.time.min	work.PrepareCollector.time.total	work.ScanCodeCacheRoots.count	work.PrepareMutator.count	work.GenImmixMatureProcessEdges.time.min	work.ReleaseMutator.time.total	work.Prepare.count	work.PrepareCollector.time.min	total-work.time.total	work.EndOfGC.time.max	work.PrepareMutator.time.total	work.ScanManagementRoots.count	work.ScheduleCollection.time.min	work.ScanUniverseRoots.time.max	work.ReleaseCollector.time.max	work.ProcessWeakRefs.time.min	total-work.time.max	work.PrepareBlockState.count	work.ScanJNIHandlesRoots.time.min	work.GenImmixMatureProcessEdges.time.max	work.GenImmixMatureProcessEdges.count	work.ScheduleCollection.count	work.ScanJvmtiExportRoots.time.max	work.ScanClassLoaderDataGraphRoots.time.total	work.ScanStringTableRoots.time.min	work.ScanObjectSynchronizerRoots.time.min	work.EndOfGC.time.total	work.ScanStackRoot.count	work.ScanVMThreadRoots.time.max	work.ScanWeakProcessorRoots.time.max	work.ScheduleCollection.time.total	work.ScanStringTableRoots.count	work.ScheduleCollection.time.max	work.Release.count	work.ProcessWeakRefs.time.total	work.ReleaseMutator.time.max	work.Prepare.time.total	work.ReleaseMutator.count	work.ScanAOTLoaderRoots.time.min	work.PrepareCollector.count	total-work.count	work.Prepare.time.min	work.ProcessWeakRefs.time.max	work.ScanSystemDictionaryRoots.time.min	work.ReleaseCollector.time.min	work.ScanClassLoaderDataGraphRoots.count	work.ScanStackRoot.time.total	work.ScanAOTLoaderRoots.time.total	work.SweepChunk.time.max	work.ScanVMThreadRoots.count	work.ScanManagementRoots.time.min	work.ScanJvmtiExportRoots.time.total	work.ScanWeakProcessorRoots.time.total	work.ScanUniverseRoots.time.min	work.ProcessWeakRefs.count	work.PrepareCollector.time.max	work.ScanVMSpecificRoots.time.max	work.ScanWeakProcessorRoots.count	work.Finalization.time.total	work.ScanCodeCacheRoots.time.max	work.ScanStackRoot.time.max	work.Finalization.time.max	work.ScanUniverseRoots.time.total	work.ScanManagementRoots.time.total	work.ScanObjectSynchronizerRoots.count	work.ScanVMSpecificRoots.time.min	work.ScanVMThreadRoots.time.total	work.ScanJNIHandlesRoots.time.total	work.ReleaseCollector.time.total	work.PrepareBlockState.time.min	work.StopMutators.time.max	work.ScanJvmtiExportRoots.count	work.SweepChunk.time.total	work.ScanObjectSynchronizerRoots.time.max	work.EndOfGC.count	work.ScanSystemDictionaryRoots.time.total	work.PrepareBlockState.time.total	work.ScanJvmtiExportRoots.time.min	work.ScanSystemDictionaryRoots.time.max	work.Release.time.total	work.ScanClassLoaderDataGraphRoots.time.max	work.ScanVMThreadRoots.time.min	work.ScanVMSpecificRoots.time.total	work.ScanCodeCacheRoots.time.min	work.ScanClassLoaderDataGraphRoots.time.min	work.PrepareBlockState.time.max	work.StopMutators.time.total	work.ScanJNIHandlesRoots.count	work.Prepare.time.max	work.ScanVMSpecificRoots.count	work.ScanJNIHandlesRoots.time.max	work.ScanUniverseRoots.count	work.GenImmixMatureProcessEdges.time.total	work.Finalization.count	work.ScanStringTableRoots.time.total	total-work.time.min	work.ScanCodeCacheRoots.time.total	work.Release.time.min	work.ScanStackRoot.time.min	work.ScanWeakProcessorRoots.time.min	work.ScanAOTLoaderRoots.count	work.SweepChunk.time.min	work.ScanStringTableRoots.time.max	
+250	4402.59	4570.77	74.00	2250	250	9525.00	2000	103.00	399338.00	19971.00	31447.00	242925.00	20568.00	250	473418.00	6101.00	1759266.00	250	13545	68.00	4190735.00	250	128.00	20911012490.00	143072.00	5636673.00	250	11918.00	19357.00	6290.00	139.00	9669921.00	2250	1783.00	9669921.00	706857	250	16363.00	71506431.00	156634.00	356.00	10826660.00	13545	411582.00	521203.00	6538683.00	250	58786.00	250	90272.00	14738.00	11290276.00	13545	858.00	2000	760992	12969.00	901.00	10693.00	98.00	250	442296764.00	981877.00	224426.00	250	2548.00	858512.00	11954484.00	1147.00	250	17214.00	414390.00	250	2169504.00	5460189.00	586544.00	27342.00	641262.00	1643923.00	250	675.00	2348548.00	1081889.00	636116.00	4058.00	1106138.00	250	60029679.00	21511.00	250	5752427.00	58787486.00	821.00	368584.00	20418853.00	475001.00	1231.00	2203401.00	4765649.00	173520.00	75315.00	138040673.00	250	115287.00	250	14424.00	250	18761570597.00	250	61764616.00	68.00	1225519465.00	50482.00	725.00	12761.00	250	6781.00	290584.00	
+Total time: 8973.35 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f h2o PASSED in 8973 msec =====
+
+-----
+mkdir -p PLOTTY_WORKAROUND; timedrun; MMTK_PLAN=GenImmix MMTK_MAX_NURSERY=33554432 MMTK_MIN_NURSERY=33554432 /home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk/bin/java -XX:MetaspaceSize=500M -XX:+DisableExplicitGC -server -XX:-TieredCompilation -Xcomp -XX:+UseThirdPartyHeap -Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk -Xms420M -Xmx420M -cp /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar:/home/claireh/probes:/home/claireh/probes/probes.jar Harness -c probe.DacapoChopinCallback -n 5 -s default h2o
+Sat 29 Jan 12:05:03 AEDT 2022
+
+ 12:05:03 up 21 days, 23:40,  3 users,  load average: 3.32, 3.33, 3.17
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+claireh  pts/1    tmux(3303).%0    07Jan22 16:29m 16.89s  0.00s /bin/sh -c w
+claireh  pts/6    tmux(3303).%1    10Jan22 16:22m  0.18s  0.18s -bash
+claireh  pts/9    tmux(3303).%5    21Jan22 23:39m  0.03s  0.03s -bash
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  0 113408 1968472 3436476 10530920    0    0    41    36    1    1 14  1 85  0  0
+ 0  0 113408 1969140 3436476 10530600    0    0     0     0  184  119  0  0 100  0  0
+
+top - 12:05:04 up 21 days, 23:40,  3 users,  load average: 3.32, 3.33, 3.17
+Tasks: 166 total,   1 running, 100 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 14.3 us,  0.4 sy,  0.1 ni, 84.9 id,  0.1 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16280872 total,  1966720 free,   347076 used, 13967076 buff/cache
+KiB Swap: 33554428 total, 33441020 free,   113408 used. 15556428 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+15094 claireh   20   0  990232 104044  38308 S  62.5  0.6   0:18.04 /home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node /home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/out/bootstrap-fork --type=extensionHost --uriTransformerPath=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/out/vs/server/uriTransformer.js
+    1 root      20   0   77676   5440   3912 S   0.0  0.0   0:24.95 /sbin/init
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.08 [kthreadd]
+    3 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_gp]
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 [rcu_par_gp]
+
+Environment variables: 
+	BROWSER=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin/helpers/browser.sh
+	COLORTERM=truecolor
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1239/bus
+	GIT_ASKPASS=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass.sh
+	HOME=/home/claireh
+	LANG=en_AU.UTF-8
+	LANGUAGE=en_AU:en
+	LOGNAME=claireh
+	MAIL=/var/mail/claireh
+	OLDPWD=/home/claireh
+	PATH=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/opt/apache-ant-1.9.16/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin:/home/claireh/.local/bin:/home/claireh/.dotnet/tools:/home/claireh/.local/bin
+	PWD=/home/claireh/running-ng
+	SHELL=/bin/bash
+	SHLVL=6
+	SSH_CLIENT=10.0.0.2 32928 22
+	SSH_CONNECTION=10.0.0.2 32928 10.0.0.50 22
+	SSH_ORIGINAL_COMMAND=bash
+	TERM=screen
+	TERM_PROGRAM=vscode
+	TERM_PROGRAM_VERSION=1.63.2
+	TMUX=/tmp/tmux-1239/default,3303,0
+	TMUX_PANE=%0
+	USER=claireh
+	VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+	VSCODE_GIT_ASKPASS_MAIN=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/extensions/git/dist/askpass-main.js
+	VSCODE_GIT_ASKPASS_NODE=/home/claireh/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+	VSCODE_GIT_IPC_HANDLE=/run/user/1239/vscode-git-ac8fcb59c9.sock
+	VSCODE_IPC_HOOK_CLI=/run/user/1239/vscode-ipc-de024d65-551e-4313-998b-96bd3e9806ff.sock
+	XDG_RUNTIME_DIR=/run/user/1239
+	XDG_SESSION_ID=9
+	_=/home/claireh/.local/bin/running
+OS: Linux fisher 5.4.0-91-generic #102~18.04.1-Ubuntu SMP Thu Nov 11 14:46:36 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+CPU: model name	: Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
+number of cores: 8
+Frequency of cpu 0: 4.00 GHz
+Governor of cpu 0: performance
+Scaling_min_freq of cpu 0: 0.80 GHz
+Frequency of cpu 1: 4.00 GHz
+Governor of cpu 1: performance
+Scaling_min_freq of cpu 1: 0.80 GHz
+Frequency of cpu 2: 4.00 GHz
+Governor of cpu 2: performance
+Scaling_min_freq of cpu 2: 0.80 GHz
+Frequency of cpu 3: 4.00 GHz
+Governor of cpu 3: performance
+Scaling_min_freq of cpu 3: 0.80 GHz
+Frequency of cpu 4: 4.00 GHz
+Governor of cpu 4: performance
+Scaling_min_freq of cpu 4: 0.80 GHz
+Frequency of cpu 5: 4.00 GHz
+Governor of cpu 5: performance
+Scaling_min_freq of cpu 5: 0.80 GHz
+Frequency of cpu 6: 4.00 GHz
+Governor of cpu 6: performance
+Scaling_min_freq of cpu 6: 0.80 GHz
+Frequency of cpu 7: 4.00 GHz
+Governor of cpu 7: performance
+Scaling_min_freq of cpu 7: 0.80 GHz
+--------------------------------------------------------------------------------
+IMPORTANT NOTICE:  This is NOT a release build of the DaCapo suite.
+Since it is not an official release of the DaCapo suite, care must be taken when
+using the suite, and any use of the build must be sure to note that it is not an
+offical release, and should note the relevant git hash.
+
+Feedback is greatly appreciated.   The preferred mode of feedback is via github.
+Please use our github page to create an issue or a pull request.
+    https://github.com/dacapobench/dacapobench.
+--------------------------------------------------------------------------------
+
+Using scaled threading model. 8 processors detected, 8 threads used to drive the workload, in a possible range of [1,1024]
+===== DaCapo evaluation-git-29a657f h2o starting warmup 1 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 1 in 20808 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 2 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 2 in 9707 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 3 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 3 in 8656 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting warmup 4 =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+===== DaCapo evaluation-git-29a657f h2o completed warmup 4 in 8828 msec =====
+===== DaCapo evaluation-git-29a657f h2o starting =====
+Importing file: citibiketripdata201908.csv......
+Parsing file: citibiketripdata201908.csv......
+Building model......
+Model built successfully
+Frames deleted
+H2O finished
+============================ MMTk Statistics Totals ============================
+GC	time.other	time.stw	work.ScanWeakProcessorRoots.time.max	work.PrepareMutator.count	work.Release.count	work.ScanVMSpecificRoots.time.total	work.EndOfGC.count	work.GenImmixMatureProcessEdges.time.max	work.PrepareCollector.time.max	work.ReleaseMutator.time.total	total-work.time.max	work.Release.time.max	work.ScanJvmtiExportRoots.count	work.ScanCodeCacheRoots.time.min	work.SweepChunk.time.total	work.PrepareBlockState.time.total	work.ScheduleCollection.count	work.ScanUniverseRoots.time.max	work.ScanManagementRoots.time.total	total-work.count	total-work.time.total	work.ScanClassLoaderDataGraphRoots.time.min	work.Finalization.time.min	work.Release.time.total	work.PrepareBlockState.time.min	work.ScanJNIHandlesRoots.time.max	work.ProcessWeakRefs.time.total	work.ScanUniverseRoots.time.min	work.EndOfGC.time.max	work.ScanJNIHandlesRoots.count	work.ScheduleCollection.time.total	work.ScanVMSpecificRoots.count	work.ReleaseMutator.time.min	total-work.time.min	work.ScanJvmtiExportRoots.time.min	work.ScanStackRoot.count	work.PrepareBlockState.count	work.ReleaseMutator.time.max	work.ScanJvmtiExportRoots.time.total	work.PrepareCollector.count	work.ScanWeakProcessorRoots.count	work.ScanClassLoaderDataGraphRoots.count	work.Prepare.count	work.ScanCodeCacheRoots.count	work.ScanClassLoaderDataGraphRoots.time.max	work.ScanVMThreadRoots.time.max	work.PrepareBlockState.time.max	work.SweepChunk.time.max	work.ScanObjectSynchronizerRoots.count	work.ReleaseMutator.count	work.ScheduleCollection.time.max	work.ScanUniverseRoots.count	work.ScanManagementRoots.time.min	work.ScanClassLoaderDataGraphRoots.time.total	work.ScanSystemDictionaryRoots.time.max	work.ScanVMThreadRoots.count	work.ScanObjectSynchronizerRoots.time.max	work.ScanObjectSynchronizerRoots.time.total	work.ScanJNIHandlesRoots.time.min	work.ScanAOTLoaderRoots.time.max	work.ScanAOTLoaderRoots.time.min	work.ScanManagementRoots.count	work.ScanVMSpecificRoots.time.min	work.ProcessWeakRefs.count	work.ScanAOTLoaderRoots.time.total	work.ScanWeakProcessorRoots.time.total	work.ScanCodeCacheRoots.time.max	work.Release.time.min	work.ScanUniverseRoots.time.total	work.ScanJNIHandlesRoots.time.total	work.StopMutators.time.min	work.StopMutators.time.max	work.ProcessWeakRefs.time.min	work.Finalization.time.total	work.Prepare.time.total	work.ScheduleCollection.time.min	work.GenImmixMatureProcessEdges.time.min	work.ReleaseCollector.count	work.ReleaseCollector.time.total	work.ScanSystemDictionaryRoots.time.min	work.EndOfGC.time.total	work.ScanCodeCacheRoots.time.total	work.ScanVMThreadRoots.time.total	work.Prepare.time.max	work.ScanVMThreadRoots.time.min	work.ScanAOTLoaderRoots.count	work.ScanObjectSynchronizerRoots.time.min	work.GenImmixMatureProcessEdges.count	work.Prepare.time.min	work.ScanStringTableRoots.time.min	work.PrepareMutator.time.min	work.ScanStackRoot.time.min	work.ScanStackRoot.time.max	work.PrepareCollector.time.total	work.ScanStringTableRoots.time.max	work.EndOfGC.time.min	work.Finalization.time.max	work.ScanWeakProcessorRoots.time.min	work.ScanStringTableRoots.count	work.ScanJvmtiExportRoots.time.max	work.GenImmixMatureProcessEdges.time.total	work.SweepChunk.time.min	work.PrepareCollector.time.min	work.Finalization.count	work.ScanSystemDictionaryRoots.time.total	work.ScanSystemDictionaryRoots.count	work.ReleaseCollector.time.max	work.StopMutators.count	work.ScanStackRoot.time.total	work.PrepareMutator.time.max	work.PrepareMutator.time.total	work.ProcessWeakRefs.time.max	work.ScanStringTableRoots.time.total	work.StopMutators.time.total	work.ScanManagementRoots.time.max	work.ReleaseCollector.time.min	work.ScanVMSpecificRoots.time.max	work.SweepChunk.count	
+250	4440.88	4615.23	395882.00	13794	250	3567884.00	250	9531968.00	14117.00	4226077.00	9531968.00	363388.00	250	4789268.00	61034574.00	59320787.00	250	23691.00	1799812.00	759684	21114861891.00	149777.00	5950.00	20380899.00	3489.00	28826.00	205865.00	1191.00	102918.00	250	6837677.00	250	87.00	70.00	1139.00	13794	2250	17494.00	935400.00	2000	250	250	250	250	346321.00	454697.00	77845.00	376313.00	250	13794	160562.00	250	2265.00	73775102.00	368784.00	250	12284.00	408600.00	1478.00	17739.00	412.00	250	737.00	250	860713.00	11464530.00	7031349.00	28181.00	664832.00	1168470.00	253981.00	1107173.00	121.00	2168989.00	11930080.00	10407.00	70.00	2000	722664.00	6831.00	10218610.00	1232691009.00	2196386.00	742828.00	1156.00	250	466.00	704802	13150.00	176414.00	73.00	571.00	507102.00	1745869.00	549292.00	32242.00	30236.00	17787.00	250	16813.00	18964219152.00	7046.00	126.00	250	5712655.00	250	11434.00	250	427000567.00	14031.00	6007753.00	20923.00	63586542.00	140010393.00	26630.00	96.00	562093.00	2250	
+Total time: 9056.11 ms
+------------------------------ End MMTk Statistics -----------------------------
+===== DaCapo evaluation-git-29a657f h2o PASSED in 9055 msec =====

@@ -1,4 +1,4 @@
-#testing a few methods to reduce nondeterminism caused by the adaptive optimisation system
+#unshielded baseline for comparison
 includes:
   - "/home/claireh/running-ng/config/base/runbms.yml"
 
@@ -90,17 +90,7 @@ modifiers:
     type: JVMArg
     val: "-XX:TieredStopAtLevel=4"
 
-# compare normal (no shield) to lowered threshold to no tiered compilation
 configs:
-# no c2 config
-  #- "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
-  #- "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
-# lower threshold to 100
-  - "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
-  - "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
-# stop at level 4
-  - "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
-  - "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
 # c2 turns off tiered compilation & runs -Xcomp
   - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
   - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"

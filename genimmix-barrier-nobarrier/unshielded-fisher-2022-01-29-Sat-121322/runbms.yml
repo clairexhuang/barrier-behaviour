@@ -1,5 +1,5 @@
 benchmarks:
-  dacapochopin-f480064:
+  dacapochopin-29a657f:
   - avrora
   - batik
   - biojava
@@ -20,12 +20,6 @@ benchmarks:
 configs:
 - no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432
 - bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432
-- no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold
-- bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold
-- no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4
-- bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4
-- no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|xcomp
-- bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|xcomp
 heap_range: 6
 invocations: 10
 minheap_multiplier: 1.0
@@ -103,9 +97,6 @@ modifiers:
   tph:
     type: JVMArg
     val: -XX:+UseThirdPartyHeap
-  xcomp:
-    type: JVMArg
-    val: -Xcomp
 remote_host: squirrel.moma
 runtimes:
   adoptopenjdk-11:
@@ -211,8 +202,27 @@ suites:
     timing_iteration: 3
     type: DaCapo
   dacapochopin-29a657f:
-    minheap: adoptopenjdk-15-G1
+    callback: probe.DacapoChopinCallback
+    minheap: GenImmix
     minheap_values:
+      GenImmix:
+        avrora: 8
+        batik: 405
+        biojava: 204
+        cassandra: 77
+        eclipse: 558
+        fop: 23
+        graphchi: 256
+        h2o: 70
+        jme: 236
+        jython: 60
+        luindex: 28
+        lusearch: 26
+        pmd: 383
+        sunflow: 21
+        tomcat: 55
+        xalan: 13
+        zxing: 431
       adoptopenjdk-15-G1:
         avrora: 7
         batik: 253
@@ -278,8 +288,8 @@ suites:
         zxing: 97
     path: /usr/share/benchmarks/dacapo/dacapo-evaluation-git-29a657f.jar
     release: evaluation
-    timeout: 120
-    timing_iteration: 3
+    timeout: 600
+    timing_iteration: 5
     type: DaCapo
   dacapochopin-69a704e:
     minheap: adoptopenjdk-15-G1
@@ -330,27 +340,8 @@ suites:
     timing_iteration: 3
     type: DaCapo
   dacapochopin-f480064:
-    callback: probe.DacapoChopinCallback
-    minheap: GenImmix
+    minheap: temurin-11-G1
     minheap_values:
-      GenImmix:
-        avrora: 8
-        batik: 405
-        biojava: 204
-        cassandra: 77
-        eclipse: 558
-        fop: 23
-        graphchi: 256
-        h2o: 70
-        jme: 236
-        jython: 60
-        luindex: 28
-        lusearch: 26
-        pmd: 383
-        sunflow: 21
-        tomcat: 55
-        xalan: 13
-        zxing: 431
       temurin-11-G1:
         avrora: 5
         batik: 186
@@ -395,8 +386,8 @@ suites:
         zxing: 101
     path: /usr/share/benchmarks/dacapo/dacapo-evaluation-git-f480064.jar
     release: evaluation
-    timeout: 600
-    timing_iteration: 5
+    timeout: 120
+    timing_iteration: 3
     type: DaCapo
   specjbb2015:
     path: /usr/share/benchmarks/SPECjbb2015/specjbb2015.jar
