@@ -93,15 +93,15 @@ modifiers:
 # compare normal (no shield) to lowered threshold to no tiered compilation
 configs:
 # normal
-  - "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
-  - "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  #- "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  #- "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
 # lower threshold to 100
-  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
-  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
+  - "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
+  - "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
 # stop at level 4
-  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
-  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
-# c2 turns off tiere compilation & runs -Xcomp
+  - "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
+  - "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
+# c2 turns off tiered compilation & runs -Xcomp
   - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
   - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
 

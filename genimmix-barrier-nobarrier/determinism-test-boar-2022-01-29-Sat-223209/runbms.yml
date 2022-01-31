@@ -18,14 +18,12 @@ benchmarks:
   - xalan
   - zxing
 configs:
+- no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold
+- bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold
+- no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4
+- bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4
 - no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432
 - bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432
-- no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold
-- bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold
-- no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4
-- bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4
-- no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|xcomp
-- bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|xcomp
 heap_range: 6
 invocations: 10
 minheap_multiplier: 1.0
@@ -103,9 +101,6 @@ modifiers:
   tph:
     type: JVMArg
     val: -XX:+UseThirdPartyHeap
-  xcomp:
-    type: JVMArg
-    val: -Xcomp
 remote_host: squirrel.moma
 runtimes:
   adoptopenjdk-11:

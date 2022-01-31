@@ -2,7 +2,7 @@ includes:
   - "/home/claireh/running-ng/config/base/minheap.yml"
 
 benchmarks:
-  dacapochopin-29a657f:
+  dacapochopin-f480064:
     - avrora
     - batik
     - biojava
@@ -25,7 +25,6 @@ benchmarks:
 overrides:
   "suites.dacapochopin-29a657f.timing_iteration": 5
   "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
-  "suites.dacapochopin-29a657f.minheap": "temurin-11-G1"
   "suites.dacapochopin-29a657f.timeout": 600
 
 runtimes:
@@ -34,12 +33,6 @@ runtimes:
     type: OpenJDK
     release: 11
     home: "/home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk"
-# BarrierSelector set to ObjectBarrier
-  bar:
-    type: OpenJDK
-    release: 11
-    home: "/home/claireh/running-ng/builds/build_barrier/linux-x86_64-normal-server-release/jdk" 
-
 
 modifiers:
   probes_cp:
