@@ -1,0 +1,93 @@
+#fixed configurations
+includes:
+  - "/home/claireh/running-ng/config/base/runbms.yml"
+
+benchmarks:
+  dacapochopin-29a657f:
+    - avrora
+    - batik
+    - biojava
+    - cassandra
+    - eclipse
+    - fop
+    - graphchi
+    - h2o
+    - jme
+    - jython
+    - luindex
+    - lusearch
+    - pmd
+    - sunflow
+    - tomcat
+    - xalan
+    - zxing
+
+overrides:
+  "suites.dacapochopin-29a657f.timing_iteration": 5
+  "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-29a657f.minheap": GenImmix
+# set timeout as 2*600 to account for using 3 cores 
+  "suites.dacapochopin-29a657f.timeout": 1200
+# executes the script threads inside the shielded CPUset (to shield three cores, use cset shield --cpu=0,1,2,4,5,6)
+# set wrapper timeout as 1200 (without this, the sudo means the script will run into a permission error if timeout occurs)
+  "suites.dacapochopin-29a657f.wrapper": "sudo -E cset shield --user claireh --group claireh --exec -- timeout 1200"
+# sets the minheap values based on the results of the minheap script
+  "suites.dacapochopin-29a657f.minheap_values.GenImmix":
+    avrora: 8
+    batik: 405
+    biojava: 204
+    cassandra: 77
+    eclipse: 558
+    fop: 23
+    graphchi: 256
+    h2o: 70
+    jme: 236
+    jython: 60
+    luindex: 28
+    lusearch: 26
+    pmd: 383
+    sunflow: 21
+    tomcat: 55
+    xalan: 13
+    zxing: 431
+  
+runtimes:
+# BarrierSelector set to NoBarrier
+  no-bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk" 
+# BarrierSelector set to ObjectBarrier
+  bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/running-ng/builds/build_barrier/linux-x86_64-normal-server-release/jdk" 
+
+modifiers:
+  probes_cp:
+    type: JVMClasspath
+    val: "/home/claireh/probes /home/claireh/probes/probes.jar"
+  probes:
+    type: JVMArg
+    val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
+  # used to set the nursery size (in configs, fixed nursery is set to 32MB)
+  min_nursery:
+    type: EnvVar
+    var: MMTK_MIN_NURSERY
+    val: "{0}"
+  max_nursery:
+    type: EnvVar
+    var: MMTK_MAX_NURSERY
+    val: "{0}"
+  nursery_size:
+    type: ModifierSet
+    val: "max_nursery-{0}|min_nursery-{0}"
+
+configs:
+  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+
+
+
+
+
