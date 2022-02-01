@@ -3,8 +3,8 @@ includes:
   - "/home/claireh/running-ng/config/base/runbms.yml"
 
 benchmarks:
-  dacapochopin-29a657f:
-  #dacapochopin-f480064:
+  #dacapochopin-29a657f:
+  dacapochopin-f480064:
     - avrora
     - batik
     - biojava
@@ -24,11 +24,11 @@ benchmarks:
     - zxing
 
 overrides:
-  "suites.dacapochopin-29a657f.timing_iteration": 5
-  "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
-  "suites.dacapochopin-29a657f.minheap": GenImmix
-  "suites.dacapochopin-29a657f.timeout": 600
-  "suites.dacapochopin-29a657f.minheap_values.GenImmix":
+  "suites.dacapochopin-f480064.timing_iteration": 5
+  "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-f480064.minheap": GenImmix
+  "suites.dacapochopin-f480064.timeout": 600
+  "suites.dacapochopin-f480064.minheap_values.GenImmix":
     avrora: 8
     batik: 405
     biojava: 204
