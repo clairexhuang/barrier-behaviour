@@ -1,10 +1,9 @@
-#testing a few methods to reduce nondeterminism caused by the adaptive optimisation system
+#fixed configurations
 includes:
   - "/home/claireh/running-ng/config/base/runbms.yml"
 
 benchmarks:
   dacapochopin-29a657f:
-  #dacapochopin-f480064:
     - avrora
     - batik
     - biojava
@@ -27,7 +26,12 @@ overrides:
   "suites.dacapochopin-29a657f.timing_iteration": 5
   "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-29a657f.minheap": GenImmix
-  "suites.dacapochopin-29a657f.timeout": 600
+# set timeout as 2*600 to account for using 3 cores 
+  "suites.dacapochopin-29a657f.timeout": 1200
+# executes the script threads inside the shielded CPUset (to shield three cores, use cset shield --cpu=0,1,2,4,5,6)
+# set wrapper timeout as 1200 (without this, the sudo means the script will run into a permission error if timeout occurs)
+  "suites.dacapochopin-29a657f.wrapper": "sudo -E cset shield --user claireh --group claireh --exec -- timeout 1200"
+# sets the minheap values based on the results of the minheap script
   "suites.dacapochopin-29a657f.minheap_values.GenImmix":
     avrora: 8
     batik: 405
@@ -46,13 +50,13 @@ overrides:
     tomcat: 55
     xalan: 13
     zxing: 431
-
+  
 runtimes:
 # BarrierSelector set to NoBarrier
   no-bar:
     type: OpenJDK
     release: 11
-    home: "/home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk"
+    home: "/home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk" 
 # BarrierSelector set to ObjectBarrier
   bar:
     type: OpenJDK
@@ -66,6 +70,7 @@ modifiers:
   probes:
     type: JVMArg
     val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
+  # used to set the nursery size (in configs, fixed nursery is set to 32MB)
   min_nursery:
     type: EnvVar
     var: MMTK_MIN_NURSERY
@@ -77,31 +82,8 @@ modifiers:
   nursery_size:
     type: ModifierSet
     val: "max_nursery-{0}|min_nursery-{0}"
-  # lowers compiler threshold to 100 (should compile to lvl4 quickly)
-  tier4threshold:
-    type: JVMArg
-    val: "-XX:Tier4CompileThreshold=100"
-  # turns off tiered compilation
-  notier:
-    type: JVMArg
-    val: "-XX:-TieredCompilation"
-  # stops at level 4
-  stopatlevel4:
-    type: JVMArg
-    val: "-XX:TieredStopAtLevel=4"
 
-# compare normal (no shield) to lowered threshold to no tiered compilation
 configs:
-# no c2 config
-  #- "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
-  #- "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
-# lower threshold to 100
-  - "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
-  - "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|tier4threshold"
-# stop at level 4
-  - "no-bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
-  - "bar|ms|s|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|notier|stopatlevel4"
-# c2 turns off tiered compilation & runs -Xcomp
   - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
   - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
 
