@@ -23,12 +23,17 @@ benchmarks:
     - zxing
 
 overrides:
-  "suites.dacapochopin-29a657f.timing_iteration": 5
-  "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
-  "suites.dacapochopin-29a657f.timeout": 600
+  "suites.dacapochopin-f480064.timing_iteration": 5
+  "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-f480064.timeout": 600
 
 runtimes:
-# BarrierSelector set to NoBarrier
+# BarrierSelector set to ObjectBarrier
+  bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/running-ng/builds/build_barrier/linux-x86_64-normal-server-release/jdk"
+# BarrierSelector set to ObjectBarrier
   no-bar:
     type: OpenJDK
     release: 11
@@ -43,6 +48,7 @@ modifiers:
     val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
 
 configs:
+  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes"
   - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes"
 
 
