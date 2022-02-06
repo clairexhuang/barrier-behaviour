@@ -5,28 +5,28 @@ includes:
 
 benchmarks:
   dacapochopin-f480064:
-    - avrora
-    - batik
-    - biojava
-    - eclipse
-    - fop
-    - graphchi
-    - h2
+    #- avrora
+    #- batik
+    #- biojava
+    #- eclipse
+    #- fop
+    #- graphchi
+    #- h2
     - h2o
-    - jme
-    - jython
-    - luindex
-    - lusearch
-    - pmd
-    - sunflow
-    - tomcat
-    - xalan
-    - zxing
+    #- jme
+    #- jython
+    #- luindex
+    #- lusearch
+    #- pmd
+    #- sunflow
+    #- tomcat
+    #- xalan
+    #- zxing
 
 overrides:
-# 5 iterations for warm up time
+# 10 iterations for warm up time
   "suites.dacapochopin-f480064.timing_iteration": 5
-# 40 invocations for statistical stability
+# 20 invocations for statistical stability
   invocations: 40
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
@@ -81,11 +81,20 @@ modifiers:
   nursery_size:
     type: ModifierSet
     val: "max_nursery-{0}|min_nursery-{0}"
+  # Forces the benchmark to use 8 threads
+  program_arg:
+    type: ProgramArg
+    val: "-t 8"
+  # Forces MMTk to use 8 threads
+  threads:
+    type: EnvVar
+    var: MMTK_THREADS
+    val: "{0}"
 
 configs:
 # c2 turns off tiered compilation & runs -Xcomp
-  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
-  - "ob-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|program_arg|threads-8"
+  - "ob-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|program_arg|threads-8"
 
 
 
