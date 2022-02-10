@@ -31,7 +31,7 @@ overrides:
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
 # set timeout as 2*600 to account for using all cores except one 
-  "suites.dacapochopin-f480064.timeout": 1200
+  "suites.dacapochopin-f480064.timeout": 2400
 # executes the script threads inside the shielded CPUset (to shield three cores, use cset shield --cpu=0,1,2,4,5,6)
 # sets wrapper timeout as 1200 (without this, the sudo means the script will run into a permission error if timeout occurs)
   "suites.dacapochopin-f480064.wrapper": "timeout 1200 sudo -E cset shield --user claireh --group claireh --exec --"
