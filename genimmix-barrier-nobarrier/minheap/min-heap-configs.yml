@@ -3,6 +3,11 @@ includes:
 
 benchmarks:
   dacapochopin-f480064:
+    - fop
+    - graphchi
+    - h2
+    - h2o
+    - jme
     - jython
 
 overrides:
