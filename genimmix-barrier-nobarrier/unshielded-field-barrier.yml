@@ -1,5 +1,5 @@
-# Shielded object barrier overhead
-# running runbms /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier/ /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier/shielded-object-barrier.yml -p "final-shielded-f480064" -s 6
+# unshielded object barrier overhead
+# running runbms /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier/unshielded-field-barrier.yml -p "field-f480064" -s 6 
 includes:
   - "/home/claireh/running-ng/config/base/runbms.yml"
 
@@ -30,11 +30,7 @@ overrides:
   invocations: 40
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
-# set timeout as 2*600 to account for using all cores but one
-  "suites.dacapochopin-f480064.timeout": 1200
-# executes the script threads inside the shielded CPUset (to shield three cores, use cset shield --cpu=0,1,2,4,5,6)
-# sets wrapper timeout as 1200 (without this, the sudo means the script will run into a permission error if timeout occurs)
-  "suites.dacapochopin-f480064.wrapper": "timeout 1200 sudo -E cset shield --user claireh --group claireh --exec --"
+  "suites.dacapochopin-f480064.timeout": 600
   "suites.dacapochopin-f480064.minheap_values.GenImmix":
     avrora: 8
     batik: 404
@@ -53,18 +49,18 @@ overrides:
     tomcat: 62
     xalan: 29
     zxing: 446
-  
+
 runtimes:
-# BarrierSelector set to NoBarrier
+# Barrier set to NoBarrier
   no-bar:
     type: OpenJDK
     release: 11
-    home: "/home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk" 
-# BarrierSelector set to ObjectBarrier
-  ob-bar:
+    home: "/home/claireh/running-ng/field-builds/field-no-bar/linux-x86_64-normal-server-release/jdk"
+# Barrier set to FieldBarrier
+  field-bar:
     type: OpenJDK
     release: 11
-    home: "/home/claireh/running-ng/builds/build_barrier/linux-x86_64-normal-server-release/jdk" 
+    home: "/home/claireh/running-ng/field-builds/field-bar/linux-x86_64-normal-server-release/jdk" 
 
 modifiers:
   probes_cp:
@@ -73,7 +69,6 @@ modifiers:
   probes:
     type: JVMArg
     val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
-  # used to set the nursery size (in configs, fixed nursery is set to 32MB)
   min_nursery:
     type: EnvVar
     var: MMTK_MIN_NURSERY
@@ -82,13 +77,15 @@ modifiers:
     type: EnvVar
     var: MMTK_MAX_NURSERY
     val: "{0}"
+# Sets a fixed nursery size (in our case, we use 32MB as seen in l85-86)
   nursery_size:
     type: ModifierSet
     val: "max_nursery-{0}|min_nursery-{0}"
 
 configs:
+# c2 turns off tiered compilation & runs -Xcomp
   - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
-  - "ob-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  - "field-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
 
 
 

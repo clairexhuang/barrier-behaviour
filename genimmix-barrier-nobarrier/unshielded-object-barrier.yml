@@ -27,7 +27,7 @@ overrides:
 # 10 iterations for warm up time
   "suites.dacapochopin-f480064.timing_iteration": 5
 # 20 invocations for statistical stability
-  invocations: 40
+  invocations: 100
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
   "suites.dacapochopin-f480064.timeout": 600
