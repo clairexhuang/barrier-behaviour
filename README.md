@@ -2,7 +2,7 @@
 
 This repository contains the configuration files and raw running script result files from my 2022 summer project (supervised by Professor Steve Blackburn).
 
-These are the instructions on how to use refined measurement framework that I used for this project. It requires a full and correct implementation of the barrier that is being measured in MMTk. Here, we will use the object barrier, which is already implemented in the MMTk: 
+These are the instructions for the refined measurement framework that I used for this project. It requires a full and correct implementation of the barrier that is being measured in MMTk. Here, we will use the object barrier, which is already implemented in the MMTk: 
 1. Set up running-ng using the instructions on https://running-ng.zcai.org/.
 2. Set up the OpenJDK binding of MMTk using the tutorial: https://www.mmtk.io/mmtk-core/tutorial/preliminaries/set_up.html. Make sure to set the path to the mmtk-core repo.
 3. Navigate to mmtk-core/src/plan/generational/mod.rs.
