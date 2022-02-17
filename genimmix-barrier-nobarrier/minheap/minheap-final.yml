@@ -1,11 +1,19 @@
 bar.ms.s.c2.mmtk_gc-GenImmix.tph.probes_cp.probes:
   dacapochopin-f480064:
-    avrora: 9
-    batik: 405
-    biojava: 196
-    cassandra: .inf
-    eclipse: 561
+    avrora: 8
+    batik: 404
+    biojava: 205
+    eclipse: 558
     fop: 23
     graphchi: 256
-    h2: 1246
-    h2o: 1281
+    h2: 1243
+    h2o: 176
+    jme: 142
+    jython: 60
+    luindex: 29
+    lusearch: 30
+    pmd: 78
+    sunflow: 34
+    tomcat: 62
+    xalan: 29
+    zxing: 446

@@ -5,25 +5,38 @@ includes:
 
 benchmarks:
   dacapochopin-f480064:
+<<<<<<< HEAD
     #- avrora
+=======
+    - avrora
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
     #- batik
     #- biojava
     #- eclipse
     #- fop
     #- graphchi
+<<<<<<< HEAD
     - h2
+=======
+    #- h2
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
     - h2o
     #- jme
     #- jython
     #- luindex
     #- lusearch
     #- pmd
+<<<<<<< HEAD
     - sunflow
+=======
+    #- sunflow
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
     #- tomcat
     #- xalan
     #- zxing
 
 overrides:
+<<<<<<< HEAD
 # 10 iterations for warm up time
   "suites.dacapochopin-f480064.timing_iteration": 5
 # 20 invocations for statistical stability
@@ -31,6 +44,20 @@ overrides:
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
   "suites.dacapochopin-f480064.timeout": 1200
+=======
+# 5 iterations for warm up time
+  "suites.dacapochopin-f480064.timing_iteration": 5
+<<<<<<< HEAD
+# 20 invocations for statistical stability
+  invocations: 100
+=======
+# 40 invocations for statistical stability
+  invocations: 40
+>>>>>>> 6cc9aad965d99a0944ec1ca6d751298f3cd24eb4
+  "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-f480064.minheap": GenImmix
+  "suites.dacapochopin-f480064.timeout": 600
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
   "suites.dacapochopin-f480064.minheap_values.GenImmix":
     avrora: 8
     batik: 404

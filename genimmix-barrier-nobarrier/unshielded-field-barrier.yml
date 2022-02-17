@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 # unshielded field barrier overhead
+=======
+# unshielded object barrier overhead
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
 # running runbms /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier/unshielded-field-barrier.yml -p "field-f480064" -s 6 
 includes:
   - "/home/claireh/running-ng/config/base/runbms.yml"
 
 benchmarks:
   dacapochopin-f480064:
+<<<<<<< HEAD
     # - avrora
     # - batik
     # - biojava
@@ -22,6 +27,25 @@ benchmarks:
     # - tomcat
     # - xalan
     # - zxing
+=======
+    - avrora
+    - batik
+    - biojava
+    - eclipse
+    - fop
+    - graphchi
+    - h2
+    - h2o
+    - jme
+    - jython
+    - luindex
+    - lusearch
+    - pmd
+    - sunflow
+    - tomcat
+    - xalan
+    - zxing
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
 
 overrides:
 # 5 iterations for warm up time
@@ -30,7 +54,11 @@ overrides:
   invocations: 40
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
+<<<<<<< HEAD
   "suites.dacapochopin-f480064.timeout": 1500
+=======
+  "suites.dacapochopin-f480064.timeout": 600
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
   "suites.dacapochopin-f480064.minheap_values.GenImmix":
     avrora: 8
     batik: 404

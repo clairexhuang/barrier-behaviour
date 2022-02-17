@@ -1,0 +1,102 @@
+# unshielded object barrier overhead
+# running runbms /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier/unshielded-object-barrier.yml -p "final-unshielded-f480064" -s 6 
+includes:
+  - "/home/claireh/running-ng/config/base/runbms.yml"
+
+benchmarks:
+  dacapochopin-f480064:
+    #- avrora
+    #- batik
+    #- biojava
+    #- eclipse
+    #- fop
+    #- graphchi
+    #- h2
+    - h2o
+    #- jme
+    #- jython
+    #- luindex
+    #- lusearch
+    #- pmd
+    #- sunflow
+    #- tomcat
+    #- xalan
+    #- zxing
+
+overrides:
+# 10 iterations for warm up time
+  "suites.dacapochopin-f480064.timing_iteration": 5
+# 20 invocations for statistical stability
+  invocations: 40
+  "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-f480064.minheap": GenImmix
+  "suites.dacapochopin-f480064.timeout": 600
+  "suites.dacapochopin-f480064.minheap_values.GenImmix":
+    avrora: 8
+    batik: 404
+    biojava: 205
+    eclipse: 558
+    fop: 23
+    graphchi: 256
+    h2: 1243
+    h2o: 176
+    jme: 236
+    jython: 60
+    luindex: 29
+    lusearch: 30
+    pmd: 78
+    sunflow: 34
+    tomcat: 62
+    xalan: 29
+    zxing: 446
+
+runtimes:
+# BarrierSelector set to NoBarrier
+  no-bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/running-ng/builds/build_no_barrier/linux-x86_64-normal-server-release/jdk"
+# BarrierSelector set to ObjectBarrier
+  ob-bar:
+    type: OpenJDK
+    release: 11
+    home: "/home/claireh/running-ng/builds/build_barrier/linux-x86_64-normal-server-release/jdk" 
+
+modifiers:
+  probes_cp:
+    type: JVMClasspath
+    val: "/home/claireh/probes /home/claireh/probes/probes.jar"
+  probes:
+    type: JVMArg
+    val: "-Djava.library.path=/home/claireh/probes -Dprobes=RustMMTk"
+  min_nursery:
+    type: EnvVar
+    var: MMTK_MIN_NURSERY
+    val: "{0}"
+  max_nursery:
+    type: EnvVar
+    var: MMTK_MAX_NURSERY
+    val: "{0}"
+# Sets a fixed nursery size (in our case, we use 32MB as seen in l85-86)
+  nursery_size:
+    type: ModifierSet
+    val: "max_nursery-{0}|min_nursery-{0}"
+  # Forces the benchmark to use 8 threads
+  program_arg:
+    type: ProgramArg
+    val: "-t 8"
+  # Forces MMTk to use 8 threads
+  threads:
+    type: EnvVar
+    var: MMTK_THREADS
+    val: "{0}"
+
+configs:
+# c2 turns off tiered compilation & runs -Xcomp
+  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|program_arg|threads-8"
+  - "ob-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432|program_arg|threads-8"
+
+
+
+
+

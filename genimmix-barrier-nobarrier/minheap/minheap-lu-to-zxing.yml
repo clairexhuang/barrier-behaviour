@@ -1,0 +1,17 @@
+bar.ms.s.c2.mmtk_gc-GenImmix.tph.probes_cp.probes:
+  dacapochopin-f480064:
+    luindex: 29
+    lusearch: 30
+    pmd: 78
+    sunflow: 34
+    tomcat: 62
+    xalan: 29
+    zxing: 446
+no-bar.ms.s.c2.mmtk_gc-GenImmix.tph.probes_cp.probes:
+  dacapochopin-f480064:
+    luindex: 29
+    lusearch: 30
+    pmd: 78
+    sunflow: 34
+    tomcat: 62
+    xalan: 29
