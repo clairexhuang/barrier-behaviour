@@ -1,0 +1,95 @@
+# barrier measurement template
+# the command used is:
+# running runbms {destination path} {path to the config file} -p "{experiment name}" -s 6 
+includes:
+   - "./base/runbms.yml"
+
+benchmarks:
+  dacapochopin-f480064:
+    - avrora
+    - batik
+    - biojava
+    - eclipse
+    - fop
+    - graphchi
+    - h2
+    - jme
+    - jython
+    - luindex
+    - lusearch
+    - pmd
+    - sunflow
+    - tomcat
+    - xalan
+    - zxing
+
+overrides:
+# 5 iterations for warm up time
+  "suites.dacapochopin-f480064.timing_iteration": 5
+# 40 invocations for statistical stability
+  invocations: 40
+  "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-f480064.minheap": GenImmix
+# 600s timeout; if a benchmark fails to finish, this may need to be increased
+  "suites.dacapochopin-f480064.timeout": 600
+# results from the running minheap script; this should be inherent to the collector & independent of the barrier 
+  "suites.dacapochopin-f480064.minheap_values.GenImmix":
+    avrora: 8
+    batik: 404
+    biojava: 205
+    eclipse: 558
+    fop: 23
+    graphchi: 256
+    h2: 1243
+    h2o: 176
+    jme: 236
+    jython: 60
+    luindex: 29
+    lusearch: 30
+    pmd: 78
+    sunflow: 34
+    tomcat: 62
+    xalan: 29
+    zxing: 446
+
+runtimes:
+# build with no barrier
+  no-bar:
+    type: OpenJDK
+    release: 11
+    home: "{path to no barrier build}/jdk"
+# build with barrier
+  bar:
+    type: OpenJDK
+    release: 11
+    home: "{path to barrier build}/jdk" 
+
+modifiers:
+  probes_cp:
+    type: JVMClasspath
+    val: "{path to probes} {path to probes}/probes.jar"
+  probes:
+    type: JVMArg
+    val: "-Djava.library.path={path to probes} -Dprobes=RustMMTk"
+  min_nursery:
+    type: EnvVar
+    var: MMTK_MIN_NURSERY
+    val: "{0}"
+  max_nursery:
+    type: EnvVar
+    var: MMTK_MAX_NURSERY
+    val: "{0}"
+# sets a fixed nursery size (we will use 32MB in these configs)
+  nursery_size:
+    type: ModifierSet
+    val: "max_nursery-{0}|min_nursery-{0}"
+
+configs:
+# c2 turns off tiered compilation & runs -Xcomp
+  - "no-bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+  - "bar|ms|s|c2|mmtk_gc-GenImmix|tph|probes_cp|probes|nursery_size-33554432"
+
+
+
+
+
