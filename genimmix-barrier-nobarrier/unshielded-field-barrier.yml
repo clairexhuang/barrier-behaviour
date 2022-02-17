@@ -5,29 +5,29 @@ includes:
 
 benchmarks:
   dacapochopin-f480064:
-    # - avrora
-    # - batik
+    - avrora
+    - batik
     - biojava
-    # - eclipse
-    # - fop
-    # - graphchi
-    # - h2
-    # - h2o
-    # - jme
-    # - jython
-    # - luindex
-    # - lusearch
-    # - pmd
-    # - sunflow
-    # - tomcat
-    # - xalan
-    # - zxing
+    - eclipse
+    - fop
+    - graphchi
+    - h2
+    - h2o
+    - jme
+    - jython
+    - luindex
+    - lusearch
+    - pmd
+    - sunflow
+    - tomcat
+    - xalan
+    - zxing
 
 overrides:
 # 5 iterations for warm up time
   "suites.dacapochopin-f480064.timing_iteration": 5
 # 40 invocations for statistical stability
-  invocations: 100
+  invocations: 40
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
   "suites.dacapochopin-f480064.timeout": 600
