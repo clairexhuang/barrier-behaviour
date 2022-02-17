@@ -8,19 +8,6 @@ benchmarks:
     - biojava
     - cassandra
     - eclipse
-    - fop
-    - graphchi
-    - h2
-    - h2o
-    - jme
-    - jython
-    - luindex
-    - lusearch
-    - pmd
-    - sunflow
-    - tomcat
-    - xalan
-    - zxing
 
 overrides:
   "suites.dacapochopin-f480064.timing_iteration": 5
