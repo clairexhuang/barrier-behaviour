@@ -5,32 +5,81 @@ includes:
 
 benchmarks:
   dacapochopin-f480064:
+<<<<<<< HEAD
     #- avrora
+=======
+    - avrora
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
     #- batik
     #- biojava
     #- eclipse
     #- fop
     #- graphchi
+<<<<<<< HEAD
     - h2
     #- h2o
+=======
+<<<<<<< HEAD
+    - h2
+=======
+    #- h2
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
+    - h2o
+>>>>>>> e21b9bf7e4f5151cab66eaba61fa55ec18dc2d78
     #- jme
-    #- jython
-    #- luindex
+    - jython
+    # luindex
     #- lusearch
     #- pmd
+<<<<<<< HEAD
     #- sunflow
+=======
+<<<<<<< HEAD
+    #- sunflow
+=======
+<<<<<<< HEAD
+    - sunflow
+=======
+    #- sunflow
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
+>>>>>>> d3d2213ab629191007769a2497e9e376f476e262
+>>>>>>> e21b9bf7e4f5151cab66eaba61fa55ec18dc2d78
     #- tomcat
     #- xalan
     #- zxing
 
 overrides:
+<<<<<<< HEAD
 # 5 iterations for warm up time
   "suites.dacapochopin-f480064.timing_iteration": 5
-# 40 invocations for statistical stability
-  invocations: 40
+=======
+<<<<<<< HEAD
+# 10 iterations for warm up time
+  "suites.dacapochopin-f480064.timing_iteration": 5
+# 20 invocations for statistical stability
+  invocations: 100
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
   "suites.dacapochopin-f480064.timeout": 1200
+=======
+# 5 iterations for warm up time
+  "suites.dacapochopin-f480064.timing_iteration": 5
+<<<<<<< HEAD
+# 20 invocations for statistical stability
+  invocations: 100
+=======
+>>>>>>> e21b9bf7e4f5151cab66eaba61fa55ec18dc2d78
+# 40 invocations for statistical stability
+  invocations: 40
+>>>>>>> 6cc9aad965d99a0944ec1ca6d751298f3cd24eb4
+  "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-f480064.minheap": GenImmix
+<<<<<<< HEAD
+  "suites.dacapochopin-f480064.timeout": 1200
+=======
+  "suites.dacapochopin-f480064.timeout": 600
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
+>>>>>>> e21b9bf7e4f5151cab66eaba61fa55ec18dc2d78
   "suites.dacapochopin-f480064.minheap_values.GenImmix":
     avrora: 8
     batik: 404

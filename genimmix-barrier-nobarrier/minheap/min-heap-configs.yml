@@ -3,7 +3,20 @@ includes:
 
 benchmarks:
   dacapochopin-f480064:
+<<<<<<< HEAD
+    - avrora
+    - batik
+    - biojava
+    - cassandra
+    - eclipse
+=======
+    - fop
+    - graphchi
+    - h2
+    - h2o
+    - jme
     - jython
+>>>>>>> e1dd23c37935d85a2811bbc6c5e004b2012adffb
 
 overrides:
   "suites.dacapochopin-f480064.timing_iteration": 5
