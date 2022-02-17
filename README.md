@@ -1,6 +1,6 @@
 # Evaluation of Barrier Behaviour
 
-This repository contains the configuration files and raw running script result files from my 2022 summer project (supervised by Professor Steve Blackburn).
+This repository contains the configuration files and raw running script result files from my 2022 summer project on 'Evaluating Barrier Behaviour in a Modern JVM' (supervised by Professor Steve Blackburn).
 
 These are the instructions for the refined measurement framework that I used for this project. It requires a full and correct implementation of the barrier that is being measured in MMTk. Here, we will use the object barrier, which is already implemented in the MMTk: 
 1. Set up running-ng using the instructions on https://running-ng.zcai.org/.
