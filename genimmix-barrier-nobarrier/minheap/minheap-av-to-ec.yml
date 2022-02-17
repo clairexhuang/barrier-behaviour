@@ -1,0 +1,11 @@
+bar.ms.s.c2.mmtk_gc-GenImmix.tph.probes_cp.probes:
+  dacapochopin-f480064:
+    avrora: 8
+    batik: 404
+    biojava: 205
+    cassandra: .inf
+    eclipse: 558
+no-bar.ms.s.c2.mmtk_gc-GenImmix.tph.probes_cp.probes:
+  dacapochopin-f480064:
+    avrora: 8
+    batik: 404

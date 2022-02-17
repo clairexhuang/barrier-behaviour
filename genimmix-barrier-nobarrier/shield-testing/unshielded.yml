@@ -3,8 +3,7 @@ includes:
   - "/home/claireh/running-ng/config/base/runbms.yml"
 
 benchmarks:
-  dacapochopin-29a657f:
-  #dacapochopin-f480064:
+  dacapochopin-f480064:
     - avrora
     - batik
     - biojava
@@ -24,28 +23,28 @@ benchmarks:
     - zxing
 
 overrides:
-  "suites.dacapochopin-29a657f.timing_iteration": 5
-  "suites.dacapochopin-29a657f.callback": "probe.DacapoChopinCallback"
-  "suites.dacapochopin-29a657f.minheap": GenImmix
-  "suites.dacapochopin-29a657f.timeout": 600
-  "suites.dacapochopin-29a657f.minheap_values.GenImmix":
-    avrora: 8
-    batik: 405
-    biojava: 204
-    cassandra: 77
-    eclipse: 558
+  "suites.dacapochopin-f480064.timing_iteration": 5
+  "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
+  "suites.dacapochopin-f480064.minheap": GenImmix
+  "suites.dacapochopin-f480064.timeout": 600
+  "suites.dacapochopin-f480064.minheap_values.GenImmix":
+    avrora: 9
+    batik: 356
+    biojava: 217
+    cassandra: 148
+    eclipse: 387
     fop: 23
     graphchi: 256
-    h2o: 70
-    jme: 236
-    jython: 60
-    luindex: 28
-    lusearch: 26
-    pmd: 383
-    sunflow: 21
-    tomcat: 55
-    xalan: 13
-    zxing: 431
+    h2o: 1213
+    jme: 142
+    jython: 63
+    luindex: 29
+    lusearch: 32
+    pmd: 78
+    sunflow: 37
+    tomcat: 60
+    xalan: 2050
+    zxing: 279  
 
 runtimes:
 # BarrierSelector set to NoBarrier
@@ -77,18 +76,7 @@ modifiers:
   nursery_size:
     type: ModifierSet
     val: "max_nursery-{0}|min_nursery-{0}"
-  # lowers compiler threshold to 100 (should compile to lvl4 quickly)
-  tier4threshold:
-    type: JVMArg
-    val: "-XX:Tier4CompileThreshold=100"
-  # turns off tiered compilation
-  notier:
-    type: JVMArg
-    val: "-XX:-TieredCompilation"
-  # stops at level 4
-  stopatlevel4:
-    type: JVMArg
-    val: "-XX:TieredStopAtLevel=4"
+
 
 configs:
 # c2 turns off tiered compilation & runs -Xcomp
