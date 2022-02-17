@@ -25,9 +25,9 @@ benchmarks:
     #- zxing
 
 overrides:
-# 10 iterations for warm up time
+# 5 iterations for warm up time
   "suites.dacapochopin-f480064.timing_iteration": 5
-# 20 invocations for statistical stability
+# 40 invocations for statistical stability
   invocations: 40
   "suites.dacapochopin-f480064.callback": "probe.DacapoChopinCallback"
   "suites.dacapochopin-f480064.minheap": GenImmix
