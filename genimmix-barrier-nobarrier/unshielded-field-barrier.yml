@@ -1,4 +1,4 @@
-# unshielded object barrier overhead
+# unshielded field barrier overhead
 # running runbms /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier /home/claireh/barrier-behaviour/genimmix-barrier-nobarrier/unshielded-field-barrier.yml -p "field-f480064" -s 6 
 includes:
   - "/home/claireh/running-ng/config/base/runbms.yml"
