@@ -3,7 +3,7 @@
 This repository contains the configuration files and raw running script result files from my 2022 summer project on 'Evaluating Barrier Behaviour in a Modern JVM' (supervised by Professor Steve Blackburn).
 
 These are the instructions for the refined measurement framework that I used for this project. It requires a full and correct implementation of the barrier that is being measured in MMTk. Here, we will use the object barrier, which is already implemented in the MMTk: 
-1. Set up running-ng using the instructions on https://running-ng.zcai.org/.
+1. Set up running-ng using the instructions on https://anupli.github.io/running-ng/.
 2. Set up the OpenJDK binding of MMTk using the tutorial: https://www.mmtk.io/mmtk-core/tutorial/preliminaries/set_up.html. Make sure to set the path to the mmtk-core repo.
 3. Navigate to mmtk-core/src/plan/generational/mod.rs.
 4. Set `FULL_NURSERY_GC` to `true` (L40) and `ACTIVE_BARRIER` to `BarrierSelector::NoBarrier` (L38). Produce an MMTk build using the tutorial instructions in step 2 and rename the build to `no-bar`. 
